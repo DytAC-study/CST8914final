@@ -1,0 +1,86 @@
+/* 导航栏样式 */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #e2e5e7; /* 深色背景 */
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Logo 样式 */
+  .navbar-brand .logo {
+    height: 40px; /* 根据需要调整 */
+    margin-right: 1rem;
+    background-color: #ccc;
+  }
+  
+  /* 导航链接容器 */
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  /* 导航链接 */
+  .nav-item {
+    margin-right: 1rem;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+  }
+  
+  .nav-link:hover {
+    background-color: #495057; /* 悬停时的背景色 */
+  }
+  
+  /* 为 fieldset 添加边框和内边距 */
+fieldset {
+    border: 2px solid #ccc;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
+  
+  /* 设置 legend 的字体样式 */
+  legend {
+    font-weight: bold;
+    font-size: 1.2rem;
+    width: auto;
+    padding:0 1rem;
+  }
+  
+  /* 为复选框容器添加边框和内边距 */
+  .checkbox-container {
+    border: 1px solid #aaa;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* 设置复选框与标签之间的间距 */
+  .checkbox-container input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+
+  .mainContainer {
+    width: 100%;
+}
+
+.mainContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mainContent p {
+    width: 80%; /* 调整段落与图片之间的间距 */
+}
+
+.mainContent img {
+    width: 20%; /* 限制图片最大宽度，可根据需要调整 */
+    height: auto;
+}
