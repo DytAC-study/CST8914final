@@ -153,7 +153,7 @@ fieldset {
     display: inline-block;
     width: 50px;
     height: 25px;
-    margin  -right: 10px;
+    margin-right: 10px;
     background-image: url('images/button.png');
     background-size: 100% 200%;
     background-position: bottom; /* 默认是未选中状态 */
