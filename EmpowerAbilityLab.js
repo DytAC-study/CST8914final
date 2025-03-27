@@ -12,7 +12,21 @@ const homeContent = `
 
 <div class="container">
     <!-- Example row of columns -->
-    <button>Meet the Empower Community!</button>
+    <button id="openModalBtn">Meet the Empower Community!</button>
+    <div id="communityModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+        <div class="modal-content">
+            <h2 id="modalTitle">Community Steering Committee</h2>
+            <p>We get an aha! moment from product managers who try our services for the first time. We offered many lab days, workshops and usability testing services to many companies and organizations including:</p>
+            <ul>
+                <li>McGill University</li>
+                <li>Walmart.ca</li>
+                <li>Apple.ca</li>
+                <li>Google.ca</li>
+                <li>Government of Canada</li>
+            </ul>
+            <button id="closeModalBtn">Close</button>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-4">
             <h2>Our Approach</h2>
@@ -25,10 +39,12 @@ const homeContent = `
             <h2>Services </h2>
             <p>
             Promote accessibility awareness and enhance the user experience. 
-            Empathy lab days and workshops
-            Go beyond WCAG compliance!
-            Inspirational speakers. 
             </p>
+            <ul>
+                <li>Empathy lab days and workshops</li>
+                <li>Go beyond WCAG compliance!</li>
+                <li>Inspirational speakers.</li>
+            </ul>
             <a href="https://www.elevenways.be/en/services">Learn More</a> 
         </div>
         <div class="col-md-4">
@@ -90,11 +106,11 @@ const schedule = `
         </div>
         <div>
             <label for="phoneNumber">Phone number (613-123-1234):</label>
-            <input type="tel" id="phoneNumber" name="phoneNumber">
+            <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="e.g. 613-123-1234">
         </div>
         <div>
-            <label for="email" required>Email: (required)</label>
-            <input type="email" id="email" name="email">
+            <label for="email">Email: (required)</label>
+            <input type="email" id="email" name="email" required placeholder="e.g. sampleUser@gmail.com">
         </div>
         </fieldset>
           <fieldset>
@@ -121,18 +137,17 @@ const schedule = `
             <br>
             <textarea id="eventDetails" name="eventDetails" rows="4" cols="50"></textarea>
         </div>
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-            <label class="form-check-label" for="flexSwitchCheckChecked">Receive emails about updates and services </label>
+        <div class="custom-switch">
+        <input type="checkbox" id="emailSwitch" class="hidden-checkbox" checked>
+        <label for="emailSwitch" class="custom-switch-label">
+            <span class="switch-sprite" aria-hidden="true"></span>
+            <span class="switch-text">Receive emails about updates and services</span>
+        </label>
         </div>
         <button type="submit">Schedule a call</button>
     </form>
-    <!-- 消息显示区域 -->
-    <div id="messageContainer" style="display: none; margin-top: 10px;"></div>
-
-        <hr>
-
-      </div> <!-- /container -->
+    <hr>
+    </div> <!-- /container -->
 `;
 
 
@@ -164,29 +179,97 @@ const routes = {
       });
     }
   }
+
+  function setupFormSubmission() {
+    const form = document.getElementById('scheduleForm');
   
-  function router() {
-    const hash = window.location.hash || '#home';
-    const route = routes[hash] || { title: '页面未找到', content: '<h1>页面未找到</h1>' };
+    if (!form) return;
   
-    // 更新页面内容
-    main.innerHTML = route.content;
+    form.addEventListener('submit', function (event) {
+      event.preventDefault(); // 阻止默认提交（防止刷新页面）
   
-    // 更新页面标题
-    document.title = route.title;
+      if (form.checkValidity()) {
+        // 模拟提交成功（你可以放 AJAX 或真实提交逻辑）
+        alert("Thank you! Your message has been sent successfully.");
+        form.reset(); // 清空表单
+      } else {
+        alert("Please fill out all required fields correctly.");
+      }
+    });
+  }
+
+  function setupHomeModal() {
+    const openBtn = document.getElementById('openModalBtn');
+    const modal = document.getElementById('communityModal');
+    const closeBtn = document.getElementById('closeModalBtn');
   
-//     // 设置焦点到第一个可交互元素
-//     const firstInteractiveElement = app.querySelector('input, textarea, button, a');
-//     if (firstInteractiveElement) {
-//       firstInteractiveElement.focus();
-//     }
-    if (hash === '#schedule') {
-        setupEventDetailsToggle();
+    if (openBtn && modal && closeBtn) {
+      const focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+  
+      openBtn.addEventListener('click', () => {
+        modal.classList.add('show');
+        modal.setAttribute('aria-hidden', 'false');
+  
+        // 获取所有 modal 内的可聚焦元素
+        const focusableElements = modal.querySelectorAll(focusableSelectors);
+        const first = focusableElements[0];
+        const last = focusableElements[focusableElements.length - 1];
+  
+        // 初始焦点设置到第一个元素
+        first.focus();
+  
+        modal.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            closeModal();
+          }
+  
+          if (e.key === 'Tab') {
+            // Tab 键处理焦点循环
+            if (e.shiftKey) {
+              if (document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+              }
+            } else {
+              if (document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+              }
+            }
+          }
+        });
+  
+        function closeModal() {
+          modal.classList.remove('show');
+          modal.setAttribute('aria-hidden', 'true');
+          openBtn.focus(); // 焦点返回原按钮
+        }
+  
+        closeBtn.addEventListener('click', closeModal);
+      });
     }
   }
   
   
+function router() {
+    const hash = window.location.hash || '#home';
+    const route = routes[hash] || { title: '页面未找到', content: '<h1>页面未找到</h1>' };
 
-  window.addEventListener('hashchange', router);
-  window.addEventListener('load', router);
+    // 更新页面内容
+    main.innerHTML = route.content;
+
+    // 更新页面标题
+    document.title = route.title;
+
+    if (hash === '#schedule') {
+        setupEventDetailsToggle();
+        setupFormSubmission();
+    } else if (hash === '#home') {
+        setupHomeModal();
+    }
+}
+
+
+window.addEventListener('hashchange', router);
+window.addEventListener('load', router);
   
