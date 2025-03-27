@@ -137,7 +137,10 @@ fieldset {
 /* 自定义开关样式 */
 
 .hidden-checkbox {
-    display: none;
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
   }
   
   .custom-switch-label {
@@ -148,21 +151,25 @@ fieldset {
   
   .switch-sprite {
     display: inline-block;
-    width: 50px;         /* 根据图片宽度来设定 */
-    height: 25px;        /* 是图片高度的一半 */
+    width: 50px;
+    height: 25px;
+    margin  -right: 10px;
     background-image: url('images/button.png');
-    background-size: 100% 200%; /* 宽不变，高是2倍（因为你上下两部分） */
-    background-position: top;
-    margin-right: 10px;
+    background-size: 100% 200%;
+    background-position: bottom; /* 默认是未选中状态 */
   }
   
-  /* 当 checkbox 被勾选，显示 sprite 的上半部分 */
-  .hidden-checkbox:checked + .custom-switch-label .switch-sprite {
-    background-position: top;
+  .hidden-checkbox:checked + label .switch-sprite {
+    background-position: top; /* 选中时显示上半部分 */
   }
   
   /* 当 checkbox 未勾选，显示 sprite 的下半部分 */
   .hidden-checkbox:not(:checked) + .custom-switch-label .switch-sprite {
     background-position: bottom;
+  }
+
+  .hidden-checkbox:focus + .custom-switch-label .switch-sprite {
+    outline: 2px solid #0d6efd;
+    outline-offset: 4px;
   }
   
