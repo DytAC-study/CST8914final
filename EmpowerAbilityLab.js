@@ -12,7 +12,8 @@ const homeContent = `
 
 <div class="container">
     <!-- Example row of columns -->
-    <button id="openModalBtn">Meet the Empower Community!</button>
+    <button id="openModalBtn" class="btn btn-outline-dark">Meet the Empower Community!</button>
+    
     <div id="communityModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
         <div class="modal-content">
             <h2 id="modalTitle">Community Steering Committee</h2>
@@ -65,12 +66,20 @@ const services = `
 <div class="jumbotron">
     <div class="container">
         <h1 class="mainHeading">Welcome to Empower Ability Labs!</h1>
-        <div class="mainContainer">
-            <div class="mainContent">
-                <p>Dedicated space or programs designed to cultivate empathy and understanding among individuals towards the challenges faced by people with disabilities in using technology and interacting with various environments.</p>
-                <img src="images/services.png" alt="services">
-            </div>
+        <div class="row">
+          <div class="col-md-8 d-flex align-items-center">
+              <p>Dedicated space or programs designed to cultivate empathy and understanding among individuals towards the challenges faced by people with disabilities in using technology and interacting with various environments.</p>
+          </div>
+          <div class="col-md-4">
+
+            <img src="images/services.png" class="img-fluid" alt="services">
+
+          </div>
+            
+
         </div>
+
+            
     </div>
 </div>
     <div class="container">
@@ -86,52 +95,62 @@ const services = `
 `;
 
 const schedule = `
-<div class="jumbotron">
-    <div class="container">
-        <h1 class="mainHeading">Welcome to Empower Ability Labs!</h1>
-        <div class="mainContainer">
-            <div class="mainContent">
-                <p>At Empower Ability Labs, we are dedicated to cultivating empathy and driving positive change through immersive experiences. Fill out the form below and we’ll get back to you as soon as we can to schedule a call with our sales team!</p>
-                <img src="images/scheduleacall.png" alt="schedule">
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="mainHeading">Welcome to Empower Ability Labs!</h1>
+                <div class="row">
+                  <div class="col-md-8 d-flex align-items-center">
+                        <p>At Empower Ability Labs, we are dedicated to cultivating empathy and driving positive change through immersive experiences. Fill out the form below and we’ll get back to you as soon as we can to schedule a call with our sales team!</p>
+                  </div>
+                  <div class="col-md-4">
+                    <img src="images/scheduleacall.png" class="img-fluid" alt="services">
+                  </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-    <form class="container" id="scheduleForm">
-        <fieldset>
-            <legend>Contact Information</legend>
-        <div>
-            <label for="businessName">Business Name:</label>
-            <input type="text" id="businessName" name="businessName">
-        </div>
-        <div>
-            <label for="phoneNumber">Phone number (613-123-1234):</label>
-            <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="e.g. 613-123-1234">
-        </div>
-        <div>
-            <label for="email">Email: (required)</label>
-            <input type="email" id="email" name="email" required placeholder="e.g. sampleUser@gmail.com">
-        </div>
-        </fieldset>
+          <!-- area for hidden messages -->
+        <div id="formMessage" class="text-center mt-4" style="display: none;"></div>
+          <!-- area for form -->
+        <form class="container" id="scheduleForm">
           <fieldset>
-            <legend>What would you like to talk about:</legend>
+          <legend>Contact Information</legend>
 
-            <div class="checkbox-container">
-                <input type="checkbox" id="awareness" name="topics" value="awareness">
-                <label for="awareness">Awareness lab days and workshops</label>
+          <div class="form-group row">
+            <label for="businessName" class="col-md-3 col-form-label">Business Name:</label>
+            <div class="col-md-3">
+              <input type="text" id="businessName" name="businessName" class="form-control" required placeholder="e.g. John">
             </div>
+          </div>
+          <div class="form-group row">
+            <label for="phoneNumber" class="col-md-3 col-form-label">Phone number (613-123-1234):</label>
+            <div class="col-md-3">
+              <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" required placeholder="e.g. 613-123-1234">
+            </div>
+          </div>
 
-            <div class="checkbox-container">
-                <input type="checkbox" id="invite" name="topics" value="invite">
-                <label for="invite">Invite a speaker with disabilities to your event</label>
+          <div class="form-group row">
+            <label for="email" class="col-md-3 col-form-label">Email: (required)</label>
+            <div class="col-md-3">
+              <input type="email" id="email" name="email" class="form-control" required placeholder="e.g. sampleUser@gmail.com">
             </div>
-
-            <div class="checkbox-container">
-                <input type="checkbox" id="usability" name="topics" value="usability">
-                <label for="usability">Usability testing</label>
-            </div>
+          </div>
         </fieldset>
-          <!-- 文本区域容器，初始状态为隐藏 -->
+        <fieldset>
+          <legend>What would you like to talk about:</legend>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="options" id="option1" value="1" checked>
+            <label class="form-check-label" for="option1">Awareness lab days and workshops</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="options" id="option2" value="2">
+            <label class="form-check-label" for="option2">Invite a speaker with disabilities to your event</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="options" id="option3" value="3">
+            <label class="form-check-label" for="option3">Usability testing</label>
+          </div>
+        </fieldset>
+          <!-- area for text container -->
         <div id="eventDetailsContainer" style="display: none; margin-top: 10px;">
             <label for="eventDetails">Please tell us about your event:</label>
             <br>
@@ -144,7 +163,7 @@ const schedule = `
             <span class="switch-text">Receive emails about updates and services</span>
         </label>
         </div>
-        <button type="submit">Schedule a call</button>
+        <button type="submit" class="btn btn-outline-dark">Schedule a call</button>
     </form>
     <hr>
     </div> <!-- /container -->
@@ -159,41 +178,50 @@ const routes = {
   };
 
   function setupEventDetailsToggle() {
-    // 获取复选框和文本区域容器的引用
-    const inviteCheckbox = document.getElementById('invite');
+    const options = document.querySelectorAll('input[name="options"]');
     const eventDetailsContainer = document.getElementById('eventDetailsContainer');
+    const eventDetails = document.getElementById('eventDetails');
   
-    // 确保元素存在
-    if (inviteCheckbox && eventDetailsContainer) {
-      // 添加事件监听器，监测复选框的变化
-      inviteCheckbox.addEventListener('change', function() {
-        if (this.checked) {
-          // 如果复选框被选中，显示文本区域容器
-          eventDetailsContainer.style.display = 'block';
-          // 将焦点设置到文本区域
-          document.getElementById('eventDetails').focus();
-        } else {
-          // 如果复选框未选中，隐藏文本区域容器
-          eventDetailsContainer.style.display = 'none';
-        }
+    if (options.length && eventDetailsContainer) {
+      options.forEach(option => {
+        option.addEventListener('change', () => {
+          const selected = document.querySelector('input[name="options"]:checked');
+  
+          if (selected && selected.id === 'option2') {
+            eventDetailsContainer.style.display = 'block';
+            eventDetails.focus();
+          } else {
+            eventDetailsContainer.style.display = 'none';
+          }
+        });
       });
     }
+  
   }
 
   function setupFormSubmission() {
     const form = document.getElementById('scheduleForm');
+    const messageBox = document.getElementById('formMessage');
   
-    if (!form) return;
+    if (!form || !messageBox) return;
   
     form.addEventListener('submit', function (event) {
-      event.preventDefault(); // 阻止默认提交（防止刷新页面）
+      event.preventDefault();
+  
+      // 清除旧状态样式
+      messageBox.className = 'text-center mt-4';
   
       if (form.checkValidity()) {
-        // 模拟提交成功（你可以放 AJAX 或真实提交逻辑）
-        alert("Thank you! Your message has been sent successfully.");
-        form.reset(); // 清空表单
+        // 提交成功
+        messageBox.textContent = "✅ Thank you! Your message has been sent successfully.";
+        messageBox.classList.add('text-success', 'font-weight-bold');
+        messageBox.style.display = 'block';
+        form.reset();
       } else {
-        alert("Please fill out all required fields correctly.");
+        // 表单验证失败
+        messageBox.textContent = "⚠️ Please fill out all required fields correctly.";
+        messageBox.classList.add('text-danger', 'font-weight-bold');
+        messageBox.style.display = 'block';
       }
     });
   }
