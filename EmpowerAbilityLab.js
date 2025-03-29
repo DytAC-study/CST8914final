@@ -12,11 +12,11 @@ const homeContent = `
 
 <div class="container">
     <!-- Example row of columns -->
-    <button id="openModalBtn" class="btn btn-outline-dark">Meet the Empower Community!</button>
+    <button id="openModalBtn" class="btn btn-outline-dark" aria-label="Click this button to meet the empower communities">Meet the Empower Community!</button>
     
     <div id="communityModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
         <div class="modal-content">
-            <h2 id="modalTitle">Community Steering Committee</h2>
+            <h2 id="modalTitle" tabindex="-1">Community Steering Committee</h2>
             <p>We get an aha! moment from product managers who try our services for the first time. We offered many lab days, workshops and usability testing services to many companies and organizations including:</p>
             <ul>
                 <li>McGill University</li>
@@ -25,19 +25,19 @@ const homeContent = `
                 <li>Google.ca</li>
                 <li>Government of Canada</li>
             </ul>
-            <button id="closeModalBtn">Close</button>
+            <button id="closeModalBtn" aria-labelledby="closeModalBtn modalTitle">Close</button>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4">
+        <article class="col-md-4">
             <h2>Our Approach</h2>
             <p>
             Empower Ability Labs utilizes a hands-on approach to raise awareness and promote empathy. Our immersive workshops and lab days provide participants with a unique opportunity to step into the shoes of individuals with disabilities and navigate the world from their perspective.
             </p>
-            <a href="https://www.google.com/search/howsearchworks/our-approach/">Learn More</a>
-        </div>
-        <div class="col-md-4">
-            <h2>Services </h2>
+            <a href="https://www.google.com/search/howsearchworks/our-approach/" aria-label="Click this link to learn more about our approaches">Learn More</a>
+        </article>
+        <article class="col-md-4">
+            <h2>Services</h2>
             <p>
             Promote accessibility awareness and enhance the user experience. 
             </p>
@@ -46,15 +46,15 @@ const homeContent = `
                 <li>Go beyond WCAG compliance!</li>
                 <li>Inspirational speakers.</li>
             </ul>
-            <a href="https://www.elevenways.be/en/services">Learn More</a> 
-        </div>
-        <div class="col-md-4">
+            <a href="https://www.elevenways.be/en/services" aria-label="Click this link to learn more about our services">Learn More</a> 
+        </article>
+        <article class="col-md-4">
             <h2>Testimonials</h2>
             <p>
             Invite a speaker with disabilities to share their unique journey. This captivating addition to your upcoming event will offer insights that resonate,  inspire, educate, and enrich your team’s understanding of inclusion.
             </p>
-            <a href="https://dictionary.cambridge.org/us/dictionary/english/testimonial">Learn More</a>
-        </div>
+            <a href="https://dictionary.cambridge.org/us/dictionary/english/testimonial" aria-label="Click this link to learn more about our testimonials">Learn More</a>
+        </article>
     </div>
 
         <hr>
@@ -72,7 +72,7 @@ const services = `
           </div>
           <div class="col-md-4">
 
-            <img src="images/services.png" class="img-fluid" alt="services">
+            <img src="images/services.png" aria-hidden=”true/false” class="img-fluid" alt="services">
 
           </div>
             
@@ -103,13 +103,14 @@ const schedule = `
                         <p>At Empower Ability Labs, we are dedicated to cultivating empathy and driving positive change through immersive experiences. Fill out the form below and we’ll get back to you as soon as we can to schedule a call with our sales team!</p>
                   </div>
                   <div class="col-md-4">
-                    <img src="images/scheduleacall.png" class="img-fluid" alt="services">
+                    <img src="images/scheduleacall.png" aria-hidden=”true/false” class="img-fluid" alt="services">
                   </div>
                 </div>
             </div>
         </div>
           <!-- area for hidden messages -->
-        <div id="formMessage" class="text-center mt-4" style="display: none;"></div>
+        <div id="formMessage" tabindex="-1" class="text-center mt-4" style="display: none;"></div>
+
           <!-- area for form -->
         <form class="container" id="scheduleForm">
           <fieldset>
@@ -163,7 +164,7 @@ const schedule = `
             <span class="switch-text">Receive emails about updates and services</span>
         </label>
         </div>
-        <button type="submit" class="btn btn-outline-dark">Schedule a call</button>
+        <button type="submit" class="btn btn-outline-dark" aria-label="Click this button to submit the form and schedule a call">Schedule a call</button>
     </form>
     <hr>
     </div> <!-- /container -->
@@ -216,15 +217,18 @@ const routes = {
         messageBox.textContent = "✅ Thank you! Your message has been sent successfully.";
         messageBox.classList.add('text-success', 'font-weight-bold');
         messageBox.style.display = 'block';
+        messageBox.focus(); // 将焦点移动到消息框
         form.reset();
       } else {
         // 表单验证失败
         messageBox.textContent = "⚠️ Please fill out all required fields correctly.";
         messageBox.classList.add('text-danger', 'font-weight-bold');
         messageBox.style.display = 'block';
+        messageBox.focus(); // 将焦点移动到消息框
       }
     });
   }
+  
 
   function setupHomeModal() {
     const openBtn = document.getElementById('openModalBtn');
@@ -237,22 +241,24 @@ const routes = {
       openBtn.addEventListener('click', () => {
         modal.classList.add('show');
         modal.setAttribute('aria-hidden', 'false');
-  
+      
+        // 设置焦点到 modal 标题
+        const title = modal.querySelector('#modalTitle');
+        if (title) {
+          title.focus();
+        }
+      
         // 获取所有 modal 内的可聚焦元素
         const focusableElements = modal.querySelectorAll(focusableSelectors);
         const first = focusableElements[0];
         const last = focusableElements[focusableElements.length - 1];
-  
-        // 初始焦点设置到第一个元素
-        first.focus();
-  
+      
         modal.addEventListener('keydown', (e) => {
           if (e.key === 'Escape') {
             closeModal();
           }
-  
+      
           if (e.key === 'Tab') {
-            // Tab 键处理焦点循环
             if (e.shiftKey) {
               if (document.activeElement === first) {
                 e.preventDefault();
@@ -266,18 +272,17 @@ const routes = {
             }
           }
         });
-  
+      
         function closeModal() {
           modal.classList.remove('show');
           modal.setAttribute('aria-hidden', 'true');
           openBtn.focus(); // 焦点返回原按钮
         }
-  
+      
         closeBtn.addEventListener('click', closeModal);
       });
     }
-  }
-  
+  }      
   
 function router() {
     const hash = window.location.hash || '#home';
