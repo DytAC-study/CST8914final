@@ -1,7 +1,8 @@
 const app = document.getElementById('app');
 const main = document.querySelector('main');
 
-// 首页内容
+// content for home page, services page, and schedule page
+// The home page content includes a modal that is triggered by a button click
 const homeContent = `
 <div class="jumbotron">
     <div class="container">
@@ -94,6 +95,7 @@ const services = `
 
 `;
 
+// The schedule page content includes a form for scheduling a call
 const schedule = `
         <div class="jumbotron">
             <div class="container">
@@ -117,61 +119,61 @@ const schedule = `
           <legend>Contact Information</legend>
 
           <div class="form-group row">
-            <label for="businessName" class="col-md-3 col-form-label">Business Name:</label>
-            <div class="col-md-3">
+            <label for="businessName" class="col-md-3 col-sm-5 col-form-label">Business Name:</label>
+            <div class="col-md-4 col-sm-7">
               <input type="text" id="businessName" name="businessName" class="form-control" required placeholder="e.g. John">
             </div>
           </div>
           <div class="form-group row">
-            <label for="phoneNumber" class="col-md-3 col-form-label">Phone number (613-123-1234):</label>
-            <div class="col-md-3">
+            <label for="phoneNumber" class="col-md-3 col-sm-5 col-form-label">Phone number (613-123-1234):</label>
+            <div class="col-md-4 col-sm-7">
               <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" required placeholder="e.g. 613-123-1234">
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="email" class="col-md-3 col-form-label">Email: (required)</label>
-            <div class="col-md-3">
+            <label for="email" class="col-md-3 col-sm-5 col-form-label">Email: (required)</label>
+            <div class="col-md-4 col-sm-7">
               <input type="email" id="email" name="email" class="form-control" required placeholder="e.g. sampleUser@gmail.com">
             </div>
           </div>
         </fieldset>
         <fieldset>
           <legend>What would you like to talk about:</legend>
-          <div class="form-check">
+          <div class="form-check mb-3">
             <input class="form-check-input" type="radio" name="options" id="option1" value="1" checked>
             <label class="form-check-label" for="option1">Awareness lab days and workshops</label>
           </div>
-          <div class="form-check">
+          <div class="form-check mb-3">
             <input class="form-check-input" type="radio" name="options" id="option2" value="2">
             <label class="form-check-label" for="option2">Invite a speaker with disabilities to your event</label>
           </div>
-          <div class="form-check">
+          <div class="form-check mb-3">
             <input class="form-check-input" type="radio" name="options" id="option3" value="3">
             <label class="form-check-label" for="option3">Usability testing</label>
           </div>
         </fieldset>
-          <!-- area for text container -->
+        <!-- area for text container -->
         <div id="eventDetailsContainer" style="display: none; margin-top: 10px;">
             <label for="eventDetails">Please tell us about your event:</label>
             <br>
             <textarea id="eventDetails" name="eventDetails" rows="4" cols="50"></textarea>
         </div>
-        <div class="custom-switch">
-        <input type="checkbox" id="emailSwitch" class="hidden-checkbox" checked>
-        <label for="emailSwitch" class="custom-switch-label">
-            <span class="switch-sprite" aria-hidden="true"></span>
-            <span class="switch-text">Receive emails about updates and services</span>
-        </label>
+        <div class="custom-switch mb-3">
+          <input type="checkbox" id="emailSwitch" class="hidden-checkbox" checked>
+          <label for="emailSwitch" class="custom-switch-label">
+              <span class="switch-sprite" aria-hidden="true"></span>
+              <span class="switch-text">Receive emails about updates and services</span>
+          </label>
         </div>
-        <button type="submit" class="btn btn-outline-dark" aria-label="Click this button to submit the form and schedule a call">Schedule a call</button>
+        <button type="submit" class="btn btn-outline-dark mb-3" aria-label="Click this button to submit the form and schedule a call">Schedule a call</button>
     </form>
     <hr>
     </div> <!-- /container -->
 `;
 
-
-
+// set routing for the application
+// The routes object maps the hash to the corresponding content and title
 const routes = {
     '#home': { title: 'Empower Ability Labs Home Page', content: homeContent },
     '#services': { title: 'Empower Ability Labs Service Page', content: services },
@@ -209,22 +211,22 @@ const routes = {
     form.addEventListener('submit', function (event) {
       event.preventDefault();
   
-      // 清除旧状态样式
+      // clear previous state
       messageBox.className = 'text-center mt-4';
   
       if (form.checkValidity()) {
-        // 提交成功
+        // success submission
         messageBox.textContent = "✅ Thank you! Your message has been sent successfully.";
         messageBox.classList.add('text-success', 'font-weight-bold');
         messageBox.style.display = 'block';
-        messageBox.focus(); // 将焦点移动到消息框
+        messageBox.focus(); // move foucus to the message box
         form.reset();
       } else {
-        // 表单验证失败
+        // form validation failed
         messageBox.textContent = "⚠️ Please fill out all required fields correctly.";
         messageBox.classList.add('text-danger', 'font-weight-bold');
         messageBox.style.display = 'block';
-        messageBox.focus(); // 将焦点移动到消息框
+        messageBox.focus(); // move focus to the message box
       }
     });
   }
@@ -242,13 +244,13 @@ const routes = {
         modal.classList.add('show');
         modal.setAttribute('aria-hidden', 'false');
       
-        // 设置焦点到 modal 标题
+        // set focus to the modal title
         const title = modal.querySelector('#modalTitle');
         if (title) {
           title.focus();
         }
       
-        // 获取所有 modal 内的可聚焦元素
+        // gain focus on all focusable elements in modal
         const focusableElements = modal.querySelectorAll(focusableSelectors);
         const first = focusableElements[0];
         const last = focusableElements[focusableElements.length - 1];
@@ -276,7 +278,7 @@ const routes = {
         function closeModal() {
           modal.classList.remove('show');
           modal.setAttribute('aria-hidden', 'true');
-          openBtn.focus(); // 焦点返回原按钮
+          openBtn.focus(); // return focus to the button
         }
       
         closeBtn.addEventListener('click', closeModal);
@@ -286,12 +288,12 @@ const routes = {
   
 function router() {
     const hash = window.location.hash || '#home';
-    const route = routes[hash] || { title: '页面未找到', content: '<h1>页面未找到</h1>' };
+    const route = routes[hash] || { title: 'page not found', content: '<h1>page not found</h1>' };
 
-    // 更新页面内容
+    // update the main content
     main.innerHTML = route.content;
 
-    // 更新页面标题
+    // update page title
     document.title = route.title;
 
     if (hash === '#schedule') {

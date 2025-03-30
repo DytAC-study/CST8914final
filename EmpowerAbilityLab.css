@@ -9,17 +9,16 @@
   
   /* Logo style */
   .navbar-brand .logo {
-    height: 4rem; /* 根据需要调整 */
+    height: 4rem;
     margin-right: 1rem;
   }
   
-  /* 导航链接容器 */
   .navbar-nav {
     display: flex;
     flex-direction: row;
   }
   
-  /* 导航链接 */
+  /* nav item configuration */
   .nav-item {
     margin-right: 2rem;
   }
@@ -27,20 +26,20 @@
   .nav-link {
     text-decoration: none;
     color: #333333;
-    font-size: 1.5rem; /* 字体大小 */
+    font-size: 1.5rem;
     /* padding: 0.5rem 1rem; */
-    border-radius: 5px; /* 圆角边框 */
-    transition: background-color 0.3s ease; /* 平滑过渡效果 */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
   }
   
   .nav-link:hover, .nav-link:focus {
-    background-color: #d6d6d6; /* 悬停时的背景色 */
+    background-color: #d6d6d6;
   }
 
 
-/* modal button */
+/* modal button configuration */
   .modal {
-    display: none; /* 默认不显示 */
+    display: none; /* default: don't show modal */
     position: fixed;
     top: 0;
     left: 0;
@@ -65,7 +64,7 @@
     display: flex;
   }
   
-  /* 为 fieldset 添加边框和内边距 */
+  /* fieldset configuration */
 fieldset {
     border: 2px solid #ccc;
     padding: 1rem;
@@ -73,7 +72,7 @@ fieldset {
     margin-bottom: 1rem;
   }
   
-  /* 设置 legend 的字体样式 */
+  /* set font format for legend */
   legend {
     font-weight: bold;
     font-size: 1.2rem;
@@ -81,7 +80,7 @@ fieldset {
     padding:0 1rem;
   }
   
-  /* 为复选框容器添加边框和内边距 */
+  /* set multicheckbox */
   .checkbox-container {
     border: 1px solid #aaa;
     padding: 0.5rem;
@@ -91,14 +90,14 @@ fieldset {
     align-items: center;
   }
   
-  /* 设置复选框与标签之间的间距 */
+  /* set the gap between multicheckbox and label */
   .checkbox-container input[type="checkbox"] {
     margin-right: 0.5rem;
   }
 
   .mainContent {
     display: flex;
-    align-items: center; /* 关键：让文字垂直居中 */
+    align-items: center;
     gap: 20px;
   }
   
@@ -110,10 +109,11 @@ fieldset {
   .mainContent img {
     max-width: 30%;
     height: auto;
-    max-height: 100px; /* 可根据情况调节，比如 300px */
+    max-height: 100px;
     object-fit: contain;
   }
-/* 自定义开关样式 */
+
+/* customized switch */
 
 .hidden-checkbox {
     position: absolute;
@@ -135,14 +135,14 @@ fieldset {
     margin-right: 10px;
     background-image: url('images/button.png');
     background-size: 100% 200%;
-    background-position: bottom; /* 默认是未选中状态 */
+    background-position: bottom; /* default mode is unchecked */
   }
   
   .hidden-checkbox:checked + label .switch-sprite {
-    background-position: top; /* 选中时显示上半部分 */
+    background-position: top; /* when checked, show the top half of the button image */
   }
   
-  /* 当 checkbox 未勾选，显示 sprite 的下半部分 */
+  /* when checkbox unchecked，show the bottom half of the picture */
   .hidden-checkbox:not(:checked) + .custom-switch-label .switch-sprite {
     background-position: bottom;
   }
