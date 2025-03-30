@@ -65,21 +65,15 @@ const homeContent = `
 const services = `
 <div class="jumbotron">
     <div class="container">
-        <h1 class="mainHeading">Welcome to Empower Ability Labs!</h1>
-        <div class="row">
-          <div class="col-md-8 d-flex align-items-center">
-              <p>Dedicated space or programs designed to cultivate empathy and understanding among individuals towards the challenges faced by people with disabilities in using technology and interacting with various environments.</p>
+        <div class="sectionadjust">
+          <div>
+            <h1 class="mainHeading">Services content architecture</h1>
+            <p>Dedicated space or programs designed to cultivate empathy and understanding among individuals towards the challenges faced by people with disabilities in using technology and interacting with various environments.</p>
           </div>
           <div class="col-md-4">
-
-            <img src="images/services.png" aria-hidden=”true/false” class="img-fluid" alt="services">
-
+            <img src="images/services.png" aria-hidden=”true/false” class="img-fluid" alt="Smiley face with hand sign">
           </div>
-            
-
         </div>
-
-            
     </div>
 </div>
     <div class="container">
@@ -97,7 +91,7 @@ const services = `
 const schedule = `
         <div class="jumbotron">
             <div class="container">
-                <h1 class="mainHeading">Welcome to Empower Ability Labs!</h1>
+                <h1 class="mainHeading">Schedule a call content architecture</h1>
                 <div class="row">
                   <div class="col-md-8 d-flex align-items-center">
                         <p>At Empower Ability Labs, we are dedicated to cultivating empathy and driving positive change through immersive experiences. Fill out the form below and we’ll get back to you as soon as we can to schedule a call with our sales team!</p>
