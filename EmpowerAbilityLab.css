@@ -155,3 +155,19 @@ fieldset {
   #openModalBtn {
     margin-bottom: 2rem;
   }
+
+  /* Removes Top padding, so navbar is at the top, and theres no main content div overlapping */
+  body { 
+    padding-top: 0rem;
+  }
+
+  /* Adjusted the maincontent, paragraph, and icon so theres less space around */
+  .sectionadjust{
+    display: flex;
+    box-sizing: border-box;
+  }
+
+  /* Adjust the padding around Mainheading and paragraph, with icon */
+  .jumbotron {
+    padding: 4rem;
+  }

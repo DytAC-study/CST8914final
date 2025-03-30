@@ -64,31 +64,25 @@ const homeContent = `
 `;
 
 const services = `
-<div class="jumbotron">
+<div class="jumbotron" role="region" aria-labelledby="services-heading">
     <div class="container">
-        <h1 class="mainHeading">Welcome to Empower Ability Labs!</h1>
-        <div class="row">
-          <div class="col-md-8 d-flex align-items-center">
-              <p>Dedicated space or programs designed to cultivate empathy and understanding among individuals towards the challenges faced by people with disabilities in using technology and interacting with various environments.</p>
+        <div class="sectionadjust">
+          <div>
+            <h1 class="mainHeading">Services content architecture</h1>
+            <p>Dedicated space or programs designed to cultivate empathy and understanding among individuals towards the challenges faced by people with disabilities in using technology and interacting with various environments.</p>
           </div>
           <div class="col-md-4">
-
-            <img src="images/services.png" aria-hidden=”true/false” class="img-fluid" alt="services">
-
+            <img src="images/services.png" aria-hidden=”true/false” class="img-fluid" alt="Smiley face with hand sign" role="img" aria-describedby="image-description">
           </div>
-            
-
         </div>
-
-            
     </div>
 </div>
-    <div class="container">
-        <h2>Empathy Lab days and workshops</h2>
+    <div class="container" role="region" aria-labelledby="offerings-heading">
+        <h2 id="offerings-heading">Empathy Lab days and workshops</h2>
         <p>The lab days and workshops typically provide hands-on experiences, simulations, and interactions with assistive technologies, tools, and scenarios that replicate the obstacles individuals with disabilities encounter daily.</p>
-        <h2>Inspirational speakers</h2>
+        <h2 id="speakers-heading">Inspirational speakers</h2>
         <p>Invite a speaker with disabilities to share their unique journey. This captivating addition to your upcoming event will offer insights that resonate, inspire, educate, and enrich your team’s understanding of inclusion.</p>
-        <h2>Usability testing</h2>
+        <h2 id="usability-heading">Usability testing</h2>
         <p>Go beyond WCAG! Involve individuals with disabilities in usability testing to gather valuable insights for refining product strategy and identifying accessibility concerns at an early stage when solutions are more feasible and cost-effective. You have access to a diverse community of people with disabilities, who use various assistive technologies. With technical expertise ranging from novice to expert, our community can support your product lifecycle from user research, to design, to QA.</p>
         <hr>
     </div>
@@ -99,7 +93,7 @@ const services = `
 const schedule = `
         <div class="jumbotron">
             <div class="container">
-                <h1 class="mainHeading">Welcome to Empower Ability Labs!</h1>
+                <h1 class="mainHeading">Schedule a call content architecture</h1>
                 <div class="row">
                   <div class="col-md-8 d-flex align-items-center">
                         <p>At Empower Ability Labs, we are dedicated to cultivating empathy and driving positive change through immersive experiences. Fill out the form below and we’ll get back to you as soon as we can to schedule a call with our sales team!</p>
