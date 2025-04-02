@@ -286,7 +286,9 @@ function router() {
 
     // update the main content
     main.innerHTML = route.content;
-
+//Focus Management: Move the focus to the <h1> of the new content.
+    const newHeading = main.querySelector('h1');
+    if (newHeading) newHeading.focus();
     // update page title
     document.title = route.title;
 
