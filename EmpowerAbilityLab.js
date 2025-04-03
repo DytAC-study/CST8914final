@@ -13,8 +13,8 @@ const homeContent = `
 
 <div class="container">
     <!-- Example row of columns -->
-    <button id="openModalBtn" class="btn btn-outline-dark" aria-label="Click this button to meet the empower communities">Meet the Empower Community!</button>
-    
+    <button id="openModalBtn" class="btn btn-outline-dark" aria-label="Click this button to open the Empower Community modal">Meet the Empower Community!</button>
+
     <div id="communityModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
         <div class="modal-content">
             <h2 id="modalTitle" tabindex="-1">Community Steering Committee</h2>
@@ -26,7 +26,9 @@ const homeContent = `
                 <li>Google.ca</li>
                 <li>Government of Canada</li>
             </ul>
-            <button id="closeModalBtn" aria-labelledby="closeModalBtn modalTitle">Close</button>
+             <!-- add accessibility features -->
+            <!-- <button id="closeModalBtn" aria-labelledby="closeModalBtn modalTitle">Close</button> -->
+            <button id="closeModalBtn" aria-label="Close the Community Steering Committee modal">Close</button> 
         </div>
     </div>
     <div class="row">
@@ -72,8 +74,10 @@ const services = `
             <p>Dedicated space or programs designed to cultivate empathy and understanding among individuals towards the challenges faced by people with disabilities in using technology and interacting with various environments.</p>
           </div>
           <div class="col-md-4">
-            <img src="images/services.png" aria-hidden=”true/false” class="img-fluid" alt="Smiley face with hand sign" role="img" aria-describedby="image-description">
-          </div>
+           <!-- add accessibility features -->
+           <!-- <img src="images/services.png" aria-hidden=”true/false” class="img-fluid" alt="Smiley face with hand sign" role="img" aria-describedby="image-description"> -->
+            <img src="images/services.png" alt="Smiley face with hand sign, representing accessibility and empathy" class="img-fluid" aria-hidden="false" role="img" /> 
+            </div>
         </div>
     </div>
 </div>
@@ -106,7 +110,6 @@ const schedule = `
         </div>
           <!-- area for hidden messages -->
         <div id="formMessage" tabindex="-1" class="text-center mt-4" style="display: none;"></div>
-
           <!-- area for form -->
         <form class="container" id="scheduleForm">
           <fieldset>
@@ -115,14 +118,18 @@ const schedule = `
           <div class="form-group row">
             <label for="businessName" class="col-md-3 col-sm-5 col-form-label">Business Name:</label>
             <div class="col-md-4 col-sm-7">
-              <input type="text" id="businessName" name="businessName" class="form-control" required placeholder="e.g. John">
-            </div>
+             <!-- add accessibility features -->
+              <!-- <input type="text" id="businessName" name="businessName" class="form-control" required placeholder="e.g. John"> -->
+              <input type="text" id="businessName" name="businessName" class="form-control" required aria-required="true" placeholder="e.g. John"> 
+              </div>
           </div>
           <div class="form-group row">
             <label for="phoneNumber" class="col-md-3 col-sm-5 col-form-label">Phone number (613-123-1234):</label>
             <div class="col-md-4 col-sm-7">
-              <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" required placeholder="e.g. 613-123-1234">
-            </div>
+             <!-- add accessibility features -->
+              <!-- <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" required placeholder="e.g. 613-123-1234"> -->
+              <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" required placeholder="Enter your phone number (e.g., 613-123-1234)" aria-required="true"> 
+              </div>
           </div>
 
           <div class="form-group row">
@@ -149,9 +156,13 @@ const schedule = `
         </fieldset>
         <!-- area for text container -->
         <div id="eventDetailsContainer" style="display: none; margin-top: 10px;">
-            <label for="eventDetails">Please tell us about your event:</label>
+            <!-- <label for="eventDetails">Please tell us about your event:</label> -->
+             <!-- add accessibility features -->
+            <label for="eventDetails" id="eventDetailsLabel">Please tell us about your event:</label>
             <br>
-            <textarea id="eventDetails" name="eventDetails" rows="4" cols="50"></textarea>
+            <!-- <textarea id="eventDetails" name="eventDetails" rows="4" cols="50"></textarea> -->
+             <!-- add accessibility features -->
+            <textarea id="eventDetails" name="eventDetails" rows="4" cols="50" aria-labelledby="eventDetailsLabel"></textarea> 
         </div>
         <div class="custom-switch mb-3">
           <input type="checkbox" id="emailSwitch" class="hidden-checkbox" checked>
@@ -169,138 +180,134 @@ const schedule = `
 // set routing for the application
 // The routes object maps the hash to the corresponding content and title
 const routes = {
-    '#home': { title: 'Empower Ability Labs Home Page', content: homeContent },
-    '#services': { title: 'Empower Ability Labs Service Page', content: services },
-    '#schedule': { title: 'Empower Ability Labs Schedule A Call Page', content: schedule },
-  };
+  '#home': { title: 'Empower Ability Labs Home Page', content: homeContent },
+  '#services': { title: 'Empower Ability Labs Service Page', content: services },
+  '#schedule': { title: 'Empower Ability Labs Schedule A Call Page', content: schedule },
+};
 
-  function setupEventDetailsToggle() {
-    const options = document.querySelectorAll('input[name="options"]');
-    const eventDetailsContainer = document.getElementById('eventDetailsContainer');
-    const eventDetails = document.getElementById('eventDetails');
-  
-    if (options.length && eventDetailsContainer) {
-      options.forEach(option => {
-        option.addEventListener('change', () => {
-          const selected = document.querySelector('input[name="options"]:checked');
-  
-          if (selected && selected.id === 'option2') {
-            eventDetailsContainer.style.display = 'block';
-            eventDetails.focus();
-          } else {
-            eventDetailsContainer.style.display = 'none';
-          }
-        });
+function setupEventDetailsToggle() {
+  const options = document.querySelectorAll('input[name="options"]');
+  const eventDetailsContainer = document.getElementById('eventDetailsContainer');
+  const eventDetails = document.getElementById('eventDetails');
+
+  if (options.length && eventDetailsContainer) {
+    options.forEach(option => {
+      option.addEventListener('change', () => {
+        const selected = document.querySelector('input[name="options"]:checked');
+
+        if (selected && selected.id === 'option2') {
+          eventDetailsContainer.style.display = 'block';
+          eventDetails.focus();
+        } else {
+          eventDetailsContainer.style.display = 'none';
+        }
       });
-    }
-  
-  }
-
-  function setupFormSubmission() {
-    const form = document.getElementById('scheduleForm');
-    const messageBox = document.getElementById('formMessage');
-  
-    if (!form || !messageBox) return;
-  
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
-  
-      // clear previous state
-      messageBox.className = 'text-center mt-4';
-  
-      if (form.checkValidity()) {
-        // success submission
-        messageBox.textContent = "✅ Thank you! Your message has been sent successfully.";
-        messageBox.classList.add('text-success', 'font-weight-bold');
-        messageBox.style.display = 'block';
-        messageBox.focus(); // move foucus to the message box
-        form.reset();
-      } else {
-        // form validation failed
-        messageBox.textContent = "⚠️ Please fill out all required fields correctly.";
-        messageBox.classList.add('text-danger', 'font-weight-bold');
-        messageBox.style.display = 'block';
-        messageBox.focus(); // move focus to the message box
-      }
     });
   }
-  
 
-  function setupHomeModal() {
-    const openBtn = document.getElementById('openModalBtn');
-    const modal = document.getElementById('communityModal');
-    const closeBtn = document.getElementById('closeModalBtn');
-  
-    if (openBtn && modal && closeBtn) {
-      const focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-  
-      openBtn.addEventListener('click', () => {
-        modal.classList.add('show');
-        modal.setAttribute('aria-hidden', 'false');
-      
-        // set focus to the modal title
-        const title = modal.querySelector('#modalTitle');
-        if (title) {
-          title.focus();
-        }
-      
-        // gain focus on all focusable elements in modal
-        const focusableElements = modal.querySelectorAll(focusableSelectors);
-        const first = focusableElements[0];
-        const last = focusableElements[focusableElements.length - 1];
-      
-        modal.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape') {
-            closeModal();
-          }
-      
-          if (e.key === 'Tab') {
-            if (e.shiftKey) {
-              if (document.activeElement === first) {
-                e.preventDefault();
-                last.focus();
-              }
-            } else {
-              if (document.activeElement === last) {
-                e.preventDefault();
-                first.focus();
-              }
-            }
-          }
-        });
-      
-        function closeModal() {
-          modal.classList.remove('show');
-          modal.setAttribute('aria-hidden', 'true');
-          openBtn.focus(); // return focus to the button
-        }
-      
-        closeBtn.addEventListener('click', closeModal);
-      });
+}
+
+function setupFormSubmission() {
+  const form = document.getElementById('scheduleForm');
+  const messageBox = document.getElementById('formMessage');
+
+  if (!form || !messageBox) return;
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    // clear previous state
+    messageBox.className = 'text-center mt-4';
+
+    if (form.checkValidity()) {
+      // success submission
+      messageBox.textContent = "✅ Thank you! Your message has been sent successfully.";
+      messageBox.classList.add('text-success', 'font-weight-bold');
+      messageBox.style.display = 'block';
+      messageBox.focus(); // move foucus to the message box
+      form.reset();
+    } else {
+      // form validation failed
+      messageBox.textContent = "⚠️ Please fill out all required fields correctly.";
+      messageBox.classList.add('text-danger', 'font-weight-bold');
+      messageBox.style.display = 'block';
+      messageBox.focus(); // move focus to the message box
     }
-  }      
-  
+  });
+}
+
+
+function setupHomeModal() {
+  const openBtn = document.getElementById('openModalBtn');
+  const modal = document.getElementById('communityModal');
+  const closeBtn = document.getElementById('closeModalBtn');
+
+  openBtn.addEventListener('click', () => {
+    modal.classList.add('show');
+    modal.setAttribute('aria-hidden', 'false');
+
+    // set focus to the modal title
+    const title = modal.querySelector('#modalTitle');
+    if (title) {
+      title.focus();
+    }
+
+    const focusableElements = modal.querySelectorAll(focusableSelectors);
+    const first = focusableElements[0];
+    const last = focusableElements[focusableElements.length - 1];
+
+    modal.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+
+      if (e.key === 'Tab') {
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      }
+    });
+
+    function closeModal() {
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden', 'true');
+      openBtn.focus(); // return focus to the button
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+  });
+
+}
+
 function router() {
-    const hash = window.location.hash || '#home';
-    const route = routes[hash] || { title: 'page not found', content: '<h1>page not found</h1>' };
+  const hash = window.location.hash || '#home';
+  const route = routes[hash] || { title: 'page not found', content: '<h1>page not found</h1>' };
 
-    // update the main content
-    main.innerHTML = route.content;
-//Focus Management: Move the focus to the <h1> of the new content.
-    const newHeading = main.querySelector('h1');
-    if (newHeading) newHeading.focus();
-    // update page title
-    document.title = route.title;
+  // update the main content
+  main.innerHTML = route.content;
+  //Focus Management: Move the focus to the <h1> of the new content.
+  const newHeading = main.querySelector('h1');
+  if (newHeading) newHeading.focus();
+  // update page title
+  document.title = route.title;
 
-    if (hash === '#schedule') {
-        setupEventDetailsToggle();
-        setupFormSubmission();
-    } else if (hash === '#home') {
-        setupHomeModal();
-    }
+  if (hash === '#schedule') {
+    setupEventDetailsToggle();
+    setupFormSubmission();
+  } else if (hash === '#home') {
+    setupHomeModal();
+  }
 }
 
 
 window.addEventListener('hashchange', router);
 window.addEventListener('load', router);
-  
+
