@@ -165,12 +165,13 @@ const schedule = `
         <br>
         <textarea id="eventDetails" name="eventDetails" rows="4" cols="50"></textarea>
     </div>
-    <div class="custom-switch mb-3">
-      <input type="checkbox" id="emailSwitch" class="hidden-checkbox" checked>
-      <label for="emailSwitch" class="custom-switch-label">
-          <span class="switch-sprite" aria-hidden="true"></span>
-          <span class="switch-text">Receive emails about updates and services</span>
-      </label>
+      <div class="switch-container">
+          <span class="switch">
+              <span id="emailSwitch" class="switch-toggle" role="switch" tabindex="0" aria-checked="true" aria-labelledby="switchLabel">
+              </span>
+          </span>
+          <span id="switchLabel" class="switch-label">Receive emails about updates and services</span>
+
     </div>
     <button type="submit" class="btn btn-outline-dark mb-3" aria-label="Click this button to submit the form and schedule a call">Schedule a call</button>
 </form>
@@ -210,14 +211,6 @@ function setupEventDetailsToggle() {
 function setupFormSubmission() {
     const form = document.getElementById('scheduleForm');
     const messageBox = document.getElementById('formMessage');
-  
-    // const email = document.getElementById('email');
-
-    // email.addEventListener('invalid', function(event) {
-    //   event.preventDefault(); // 阻止浏览器的默认验证提示
-    //   // 在此处添加自定义的错误处理逻辑，例如显示自定义的错误消息
-    //   // alert('请输入有效的内容！');
-    // });
 
 
     if (!form || !messageBox) return;
@@ -251,7 +244,7 @@ function setupHomeModal() {
   const modal = document.getElementById('communityModal');
   const closeBtn = document.getElementById('closeModalBtn');
 
-  // 获取模态框内的可聚焦元素
+  // get the focusable elements in the modal
   const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
   const firstFocusableElement = focusableElements[0];
   const lastFocusableElement = focusableElements[focusableElements.length - 1];
@@ -260,10 +253,10 @@ function setupHomeModal() {
     modal.classList.add('show');
     modal.setAttribute('aria-hidden', 'false');
 
-    // 将焦点设置到关闭按钮
+    // move focus to close button when modal opens
     closeBtn.focus();
 
-    // 添加键盘事件监听器，捕获焦点在模态框内
+    // trap keyboard focus inside the modal
     modal.addEventListener('keydown', trapTabKey);
   }
 
@@ -271,23 +264,21 @@ function setupHomeModal() {
     modal.classList.remove('show');
     modal.setAttribute('aria-hidden', 'true');
 
-    // 移除键盘事件监听器
+    // remove the event listener when modal closes
     modal.removeEventListener('keydown', trapTabKey);
 
-    // 将焦点返回到打开模态框的按钮
+    // return focus to the button that opened the modal
     openBtn.focus();
   }
 
   function trapTabKey(e) {
     if (e.key === 'Tab') {
       if (e.shiftKey) {
-        // 按下 Shift + Tab
         if (document.activeElement === firstFocusableElement) {
           e.preventDefault();
           lastFocusableElement.focus();
         }
       } else {
-        // 按下 Tab
         if (document.activeElement === lastFocusableElement) {
           e.preventDefault();
           firstFocusableElement.focus();
@@ -300,6 +291,32 @@ function setupHomeModal() {
 
   openBtn.addEventListener('click', openModal);
   closeBtn.addEventListener('click', closeModal);
+}
+
+//swtich toggle function
+function initializeSwitch() {
+  const switchEl = document.getElementById("emailSwitch");
+  
+  // Define toggle function
+  function toggle() {
+    const checked = switchEl.getAttribute("aria-checked") === "true";
+    switchEl.setAttribute("aria-checked", !checked);
+  }
+  
+  // Remove any existing event listeners to prevent duplicates
+  switchEl.removeEventListener("click", toggle);
+
+  // Add click event listener
+  switchEl.addEventListener("click", toggle);
+  
+  // Add keyboard event listener
+  switchEl.addEventListener("keydown", function(e) {
+    // Toggle with Space or Enter
+    if (e.key === " " || e.key === "Enter") {
+      e.preventDefault();
+      toggle();
+    }
+  });
 }
 
 //swtich toggle function
