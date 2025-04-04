@@ -163,24 +163,6 @@ legend {
   margin-right: 0.5rem;
 }
 
-.mainContent {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.mainContent p {
-  flex: 1;
-  margin: 0;
-}
-
-.mainContent img {
-  max-width: 30%;
-  height: auto;
-  max-height: 100px;
-  object-fit: contain;
-}
-
 /* Customized switch */
 .hidden-checkbox {
   position: absolute;
@@ -234,7 +216,3 @@ body {
   box-sizing: border-box;
 }
 
-/* Adjust the padding around main heading and paragraph, with icon */
-.jumbotron {
-  padding: 4rem;
-}
