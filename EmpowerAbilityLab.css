@@ -1,173 +1,240 @@
-/* navigation bar style */
+/* Navigation bar style */
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: #e2e5e7; /* light color */
-    /* padding: 0.5rem 1rem; */
-  }
-  
-  /* Logo style */
-  .navbar-brand .logo {
-    height: 4rem;
-    margin-right: 1rem;
-  }
-  
-  .navbar-nav {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  /* nav item configuration */
-  .nav-item {
-    margin-right: 2rem;
-  }
-  
-  .nav-link {
-    text-decoration: none;
-    color: #333333;
-    font-size: 1.5rem;
-    /* padding: 0.5rem 1rem; */
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .nav-link:hover, .nav-link:focus {
-    background-color: #d6d6d6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Distribute items to both ends */
+  background-color: #e2e5e7; /* light color */
+  /* padding: 0.5rem 1rem; */
+}
+
+/* Ensure the container inside navbar uses flexbox to align logo and hamburger button */
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Logo on left, hamburger on right */
+  flex-wrap: nowrap; /* Prevent wrapping to keep items in one line */
+  width: 100%;
+}
+
+/* Logo style */
+.navbar-brand .logo {
+  height: 4rem;
+  margin-right: 1rem;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Nav item configuration */
+.nav-item {
+  margin-right: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333333;
+  font-size: 1.5rem;
+  /* padding: 0.5rem 1rem; */
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link:focus {
+  background-color: #d6d6d6;
+}
+
+/* Hamburger menu button styles */
+.navbar-toggler {
+  display: none; /* Hidden by default, shown on small screens */
+  border: none;
+  background: transparent;
+  padding: 0.5rem;
+  cursor: pointer;
+  margin-left: auto; /* Push the button to the right */
+}
+
+.navbar-toggler-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.75)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  background-size: 100% 100%;
+}
+
+.navbar-toggler:focus {
+  outline: 2px solid #0d6efd; /* Focus outline for accessibility */
+  outline-offset: 2px;
+}
+
+/* Navigation collapse control */
+.navbar-collapse {
+  display: flex; /* Default display for large screens */
+}
+
+.navbar-collapse.show {
+  display: block; /* Display when expanded on small screens */
+}
+
+/* Responsive design: Adjustments for small screens */
+@media (max-width: 767px) {
+  .navbar-toggler {
+    display: block; /* Show hamburger button on small screens */
   }
 
-
-/* modal button configuration */
-  .modal {
-    display: none; /* default: don't show modal */
-    position: fixed;
-    top: 0;
-    left: 0;
+  .navbar-collapse {
+    display: none; /* Hide navigation by default on small screens */
     width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.6);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #e2e5e7;
     z-index: 1000;
-    justify-content: center;
-    align-items: center;
   }
-  
-  .modal-content {
-    background: white;
-    padding: 2rem;
-    max-width: 600px;
-    width: 90%;
-    border-radius: 10px;
-    outline: none;
-  }
-  
-  .modal.show {
-    display: flex;
-  }
-  
-  /* fieldset configuration */
-fieldset {
-    border: 2px solid #ccc;
+
+  .navbar-nav {
+    flex-direction: column; /* Stack navigation items vertically on small screens */
     padding: 1rem;
-    border-radius: 5px;
+  }
+
+  .nav-item {
+    margin-right: 0;
     margin-bottom: 1rem;
   }
-  
-  /* set font format for legend */
-  legend {
-    font-weight: bold;
-    font-size: 1.2rem;
-    width: auto;
-    padding:0 1rem;
-  }
-  
-  /* set multicheckbox */
-  .checkbox-container {
-    border: 1px solid #aaa;
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-  }
-  
-  /* set the gap between multicheckbox and label */
-  .checkbox-container input[type="checkbox"] {
-    margin-right: 0.5rem;
-  }
+}
 
-  .mainContent {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .mainContent p {
-    flex: 1;
-    margin: 0;
-  }
-  
-  .mainContent img {
-    max-width: 30%;
-    height: auto;
-    max-height: 100px;
-    object-fit: contain;
-  }
+/* Modal button configuration */
+.modal {
+  display: none; /* default: don't show modal */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
 
-/* customized switch */
+.modal-content {
+  background: white;
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  border-radius: 10px;
+  outline: none;
+}
 
+.modal.show {
+  display: flex;
+}
+
+/* Fieldset configuration */
+fieldset {
+  border: 2px solid #ccc;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+/* Set font format for legend */
+legend {
+  font-weight: bold;
+  font-size: 1.2rem;
+  width: auto;
+  padding: 0 1rem;
+}
+
+/* Set multicheckbox */
+.checkbox-container {
+  border: 1px solid #aaa;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+}
+
+/* Set the gap between multicheckbox and label */
+.checkbox-container input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+.mainContent {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.mainContent p {
+  flex: 1;
+  margin: 0;
+}
+
+.mainContent img {
+  max-width: 30%;
+  height: auto;
+  max-height: 100px;
+  object-fit: contain;
+}
+
+/* Customized switch */
 .hidden-checkbox {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  .custom-switch-label {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .switch-sprite {
-    display: inline-block;
-    width: 50px;
-    height: 25px;
-    margin-right: 10px;
-    background-image: url('images/button.png');
-    background-size: 100% 200%;
-    background-position: bottom; /* default mode is unchecked */
-  }
-  
-  .hidden-checkbox:checked + label .switch-sprite {
-    background-position: top; /* when checked, show the top half of the button image */
-  }
-  
-  /* when checkbox unchecked，show the bottom half of the picture */
-  .hidden-checkbox:not(:checked) + .custom-switch-label .switch-sprite {
-    background-position: bottom;
-  }
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
 
-  .hidden-checkbox:focus + .custom-switch-label .switch-sprite {
-    outline: 2px solid #0d6efd;
-    outline-offset: 4px;
-  }
-  
-  #openModalBtn {
-    margin-bottom: 2rem;
-  }
+.custom-switch-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
 
-  /* Removes Top padding, so navbar is at the top, and theres no main content div overlapping */
-  body { 
-    padding-top: 0rem;
-  }
+.switch-sprite {
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  margin-right: 10px;
+  background-image: url('images/button.png');
+  background-size: 100% 200%;
+  background-position: bottom; /* default mode is unchecked */
+}
 
-  /* Adjusted the maincontent, paragraph, and icon so theres less space around */
-  .sectionadjust{
-    display: flex;
-    box-sizing: border-box;
-  }
+.hidden-checkbox:checked + label .switch-sprite {
+  background-position: top; /* when checked, show the top half of the button image */
+}
 
-  /* Adjust the padding around Mainheading and paragraph, with icon */
-  .jumbotron {
-    padding: 4rem;
-  }
+/* When checkbox unchecked, show the bottom half of the picture */
+.hidden-checkbox:not(:checked) + .custom-switch-label .switch-sprite {
+  background-position: bottom;
+}
+
+.hidden-checkbox:focus + .custom-switch-label .switch-sprite {
+  outline: 2px solid #0d6efd;
+  outline-offset: 4px;
+}
+
+#openModalBtn {
+  margin-bottom: 2rem;
+}
+
+/* Removes top padding, so navbar is at the top, and there's no main content div overlapping */
+body { 
+  padding-top: 0rem;
+}
+
+/* Adjusted the main content, paragraph, and icon so there's less space around */
+.sectionadjust {
+  display: flex;
+  box-sizing: border-box;
+}
+
+/* Adjust the padding around main heading and paragraph, with icon */
+.jumbotron {
+  padding: 4rem;
+}
