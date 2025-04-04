@@ -5,10 +5,10 @@ const main = document.querySelector('main');
 // The home page content includes a modal that is triggered by a button click
 const homeContent = `
 <div class="jumbotron">
-    <div class="container">
-        <h1 class="mainHeading">Welcome to Empower Ability Labs!</h1>
-        <p>Empower Ability Labs is a hub for learning and empathy-building.  We are on a mission to foster understanding and promote inclusive digital experiences for all. We offer a range of services designed to promote accessibility awareness, drive inclusivity, and enhance the user experience. And help you find answers on How do people with disabilities use technology and navigate the digital world? What tools do they employ? </p>
-    </div>
+  <div class="container">
+    <h1 class="mainHeading display-4">Welcome to Empower Ability Labs!</h1>
+    <p class="lead">Empower Ability Labs is a hub for learning and empathy-building.  We are on a mission to foster understanding and promote inclusive digital experiences for all. We offer a range of services designed to promote accessibility awareness, drive inclusivity, and enhance the user experience. And help you find answers on How do people with disabilities use technology and navigate the digital world? What tools do they employ? </p>
+  </div>
 </div>
 
 <div class="container">
@@ -26,18 +26,18 @@ const homeContent = `
                 <li>Google.ca</li>
                 <li>Government of Canada</li>
             </ul>
-            <button id="closeModalBtn" aria-labelledby="closeModalBtn modalTitle">Close</button>
+            <button id="closeModalBtn" class="btn btn-outline-dark mb-3" aria-label="close community steering committee modal">Close</button>
         </div>
     </div>
     <div class="row">
-        <article class="col-md-4">
+        <article class="col-md-4 col-xl-4">
             <h2>Our Approach</h2>
             <p>
             Empower Ability Labs utilizes a hands-on approach to raise awareness and promote empathy. Our immersive workshops and lab days provide participants with a unique opportunity to step into the shoes of individuals with disabilities and navigate the world from their perspective.
             </p>
             <a href="https://www.google.com/search/howsearchworks/our-approach/" aria-label="Click this link to learn more about our approaches">Learn More</a>
         </article>
-        <article class="col-md-4">
+        <article class="col-md-4 col-xl-4">
             <h2>Services</h2>
             <p>
             Promote accessibility awareness and enhance the user experience. 
@@ -49,7 +49,7 @@ const homeContent = `
             </ul>
             <a href="https://www.elevenways.be/en/services" aria-label="Click this link to learn more about our services">Learn More</a> 
         </article>
-        <article class="col-md-4">
+        <article class="col-md-4 col-xl-4">
             <h2>Testimonials</h2>
             <p>
             Invite a speaker with disabilities to share their unique journey. This captivating addition to your upcoming event will offer insights that resonate,  inspire, educate, and enrich your team’s understanding of inclusion.
@@ -65,18 +65,26 @@ const homeContent = `
 
 const services = `
 <div class="jumbotron" role="region" aria-labelledby="services-heading">
-    <div class="container">
-        <div class="sectionadjust">
-          <div>
-            <h1 class="mainHeading">Services content architecture</h1>
-            <p>Dedicated space or programs designed to cultivate empathy and understanding among individuals towards the challenges faced by people with disabilities in using technology and interacting with various environments.</p>
-          </div>
-          <div class="col-md-4">
-            <img src="images/services.png" aria-hidden=”true/false” class="img-fluid" alt="Smiley face with hand sign" role="img" aria-describedby="image-description">
-          </div>
-        </div>
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- main paragraph -->
+      <div class="col-md-8">
+        <h1 id="services-heading" class="mainHeading display-4">Services content architecture</h1>
+        <p>
+          Dedicated space or programs designed to cultivate empathy and understanding among individuals
+          towards the challenges faced by people with disabilities in using technology and interacting
+          with various environments.
+        </p>
+      </div>
+
+      <!-- decorative img, will hide on small screen -->
+      <div class="col-md-4 d-none d-md-block">
+        <img src="images/services.png" alt="" aria-hidden="true" class="img-fluid" />
+      </div>
     </div>
+  </div>
 </div>
+
     <div class="container" role="region" aria-labelledby="offerings-heading">
         <h2 id="offerings-heading">Empathy Lab days and workshops</h2>
         <p>The lab days and workshops typically provide hands-on experiences, simulations, and interactions with assistive technologies, tools, and scenarios that replicate the obstacles individuals with disabilities encounter daily.</p>
@@ -89,19 +97,25 @@ const services = `
 `;
 
 const schedule = `
-        <div class="jumbotron">
-            <div class="container">
-                <h1 class="mainHeading">Schedule a call content architecture</h1>
-                <div class="row">
-                  <div class="col-md-8 d-flex align-items-center">
-                        <p>At Empower Ability Labs, we are dedicated to cultivating empathy and driving positive change through immersive experiences. Fill out the form below and we’ll get back to you as soon as we can to schedule a call with our sales team!</p>
-                  </div>
-                  <div class="col-md-4">
-                    <img src="images/scheduleacall.png" aria-hidden=”true/false” class="img-fluid" alt="services">
-                  </div>
-                </div>
-            </div>
-        </div>
+<div class="jumbotron" role="region" aria-labelledby="schedule-heading">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- main paragraph -->
+      <div class="col-md-8">
+        <h1 id="schedule-heading" class="mainHeading display-4">Schedule a call</h1>
+        <p>
+          At Empower Ability Labs, we are dedicated to cultivating empathy and driving positive change through immersive experiences. Fill out the form below and we’ll get back to you as soon as we can to schedule a call with our sales team!
+        </p>
+      </div>
+
+      <!-- decorative img, will hide on small screen -->
+      <div class="col-md-4 d-none d-md-block">
+        <img src="images/scheduleacall.png" alt="" aria-hidden="true" class="img-fluid" />
+      </div>
+    </div>
+  </div>
+</div>
+
           <!-- Area for hidden messages -->
         <div id="formMessage" tabindex="-1" class="text-center mt-4" style="display: none;"></div>
 
@@ -223,58 +237,61 @@ function setupFormSubmission() {
 }
 
 function setupHomeModal() {
-    const openBtn = document.getElementById('openModalBtn');
-    const modal = document.getElementById('communityModal');
-    const closeBtn = document.getElementById('closeModalBtn');
-  
-    if (openBtn && modal && closeBtn) {
-      const focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-  
-      openBtn.addEventListener('click', () => {
-        modal.classList.add('show');
-        modal.setAttribute('aria-hidden', 'false');
-      
-        // Set focus to the modal title
-        const title = modal.querySelector('#modalTitle');
-        if (title) {
-          title.focus();
+  const openBtn = document.getElementById('openModalBtn');
+  const modal = document.getElementById('communityModal');
+  const closeBtn = document.getElementById('closeModalBtn');
+
+  // 获取模态框内的可聚焦元素
+  const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+  const firstFocusableElement = focusableElements[0];
+  const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+  function openModal() {
+    modal.classList.add('show');
+    modal.setAttribute('aria-hidden', 'false');
+
+    // 将焦点设置到关闭按钮
+    closeBtn.focus();
+
+    // 添加键盘事件监听器，捕获焦点在模态框内
+    modal.addEventListener('keydown', trapTabKey);
+  }
+
+  function closeModal() {
+    modal.classList.remove('show');
+    modal.setAttribute('aria-hidden', 'true');
+
+    // 移除键盘事件监听器
+    modal.removeEventListener('keydown', trapTabKey);
+
+    // 将焦点返回到打开模态框的按钮
+    openBtn.focus();
+  }
+
+  function trapTabKey(e) {
+    if (e.key === 'Tab') {
+      if (e.shiftKey) {
+        // 按下 Shift + Tab
+        if (document.activeElement === firstFocusableElement) {
+          e.preventDefault();
+          lastFocusableElement.focus();
         }
-      
-        // Gain focus on all focusable elements in modal
-        const focusableElements = modal.querySelectorAll(focusableSelectors);
-        const first = focusableElements[0];
-        const last = focusableElements[focusableElements.length - 1];
-      
-        modal.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape') {
-            closeModal();
-          }
-      
-          if (e.key === 'Tab') {
-            if (e.shiftKey) {
-              if (document.activeElement === first) {
-                e.preventDefault();
-                last.focus();
-              }
-            } else {
-              if (document.activeElement === last) {
-                e.preventDefault();
-                first.focus();
-              }
-            }
-          }
-        });
-      
-        function closeModal() {
-          modal.classList.remove('show');
-          modal.setAttribute('aria-hidden', 'true');
-          openBtn.focus(); // Return focus to the button
+      } else {
+        // 按下 Tab
+        if (document.activeElement === lastFocusableElement) {
+          e.preventDefault();
+          firstFocusableElement.focus();
         }
-      
-        closeBtn.addEventListener('click', closeModal);
-      });
+      }
+    } else if (e.key === 'Escape') {
+      closeModal();
     }
-}      
+  }
+
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+}
+
   
 function router() {
     const hash = window.location.hash || '#home';
