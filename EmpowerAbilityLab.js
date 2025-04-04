@@ -302,6 +302,32 @@ function setupHomeModal() {
   closeBtn.addEventListener('click', closeModal);
 }
 
+//swtich toggle function
+function initializeSwitch() {
+  const switchEl = document.getElementById("emailSwitch");
+  
+  // Define toggle function
+  function toggle() {
+    const checked = switchEl.getAttribute("aria-checked") === "true";
+    switchEl.setAttribute("aria-checked", !checked);
+  }
+  
+  // Remove any existing event listeners to prevent duplicates
+  switchEl.removeEventListener("click", toggle);
+
+  // Add click event listener
+  switchEl.addEventListener("click", toggle);
+  
+  // Add keyboard event listener
+  switchEl.addEventListener("keydown", function(e) {
+    // Toggle with Space or Enter
+    if (e.key === " " || e.key === "Enter") {
+      e.preventDefault();
+      toggle();
+    }
+  });
+}
+
   
 function router() {
     const hash = window.location.hash || '#home';
@@ -316,6 +342,7 @@ function router() {
     if (hash === '#schedule') {
         setupEventDetailsToggle();
         setupFormSubmission();
+        initializeSwitch();
     } else if (hash === '#home') {
         setupHomeModal();
     }
