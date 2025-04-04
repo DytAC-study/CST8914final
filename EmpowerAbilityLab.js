@@ -165,12 +165,12 @@ const schedule = `
             <br>
             <textarea id="eventDetails" name="eventDetails" rows="4" cols="50"></textarea>
         </div>
-        <div class="custom-switch mb-3">
-          <input type="checkbox" id="emailSwitch" class="hidden-checkbox" checked>
-          <label for="emailSwitch" class="custom-switch-label">
-              <span class="switch-sprite" aria-hidden="true"></span>
-              <span class="switch-text">Receive emails about updates and services</span>
-          </label>
+        <div class="switch-container">
+          <span class="switch">
+              <span id="emailSwitch" class="switch-toggle" role="switch" tabindex="0" aria-checked="true" aria-labelledby="switchLabel">
+              </span>
+          </span>
+          <span id="switchLabel" class="switch-label">Receive emails about updates and services</span>
         </div>
         <button type="submit" class="btn btn-outline-dark mb-3" aria-label="Click this button to submit the form and schedule a call">Schedule a call</button>
     </form>
@@ -292,6 +292,32 @@ function setupHomeModal() {
   closeBtn.addEventListener('click', closeModal);
 }
 
+//swtich toggle function
+function initializeSwitch() {
+  const switchEl = document.getElementById("emailSwitch");
+  
+  // Define toggle function
+  function toggle() {
+    const checked = switchEl.getAttribute("aria-checked") === "true";
+    switchEl.setAttribute("aria-checked", !checked);
+  }
+  
+  // Remove any existing event listeners to prevent duplicates
+  switchEl.removeEventListener("click", toggle);
+
+  // Add click event listener
+  switchEl.addEventListener("click", toggle);
+  
+  // Add keyboard event listener
+  switchEl.addEventListener("keydown", function(e) {
+    // Toggle with Space or Enter
+    if (e.key === " " || e.key === "Enter") {
+      e.preventDefault();
+      toggle();
+    }
+  });
+}
+
   
 function router() {
     const hash = window.location.hash || '#home';
@@ -306,6 +332,7 @@ function router() {
     if (hash === '#schedule') {
         setupEventDetailsToggle();
         setupFormSubmission();
+        initializeSwitch();
     } else if (hash === '#home') {
         setupHomeModal();
     }
