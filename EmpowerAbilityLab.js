@@ -120,7 +120,7 @@ const schedule = `
         <div id="formMessage" tabindex="-1" class="text-center mt-4" style="display: none;"></div>
 
           <!-- Area for form -->
-        <form class="container" id="scheduleForm">
+        <form class="container" id="scheduleForm" novalidate>
           <fieldset>
           <legend>Contact Information</legend>
 

@@ -216,3 +216,9 @@ body {
   box-sizing: border-box;
 }
 
+/* let the radio button and label have a border when gain focus */
+input[type="radio"]:focus + label,
+input[type="radio"]:hover + label {
+  border-radius: 5px;
+  outline: 2px solid black;
+}
