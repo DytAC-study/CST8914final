@@ -15,29 +15,42 @@ const homeContent = `
   <!-- Example row of columns -->
   <button id="openModalBtn" class="btn btn-outline-dark" aria-label="Click this button to meet the empower communities">Meet the Empower Community!</button>
   
-  <div id="communityModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
-      <div class="modal-content">
-          <h2 id="modalTitle" tabindex="-1">Community Steering Committee</h2>
-          <p>We get an aha! moment from product managers who try our services for the first time. We offered many lab days, workshops and usability testing services to many companies and organizations including:</p>
-          <ul>
-              <li>McGill University</li>
-              <li>Walmart.ca</li>
-              <li>Apple.ca</li>
-              <li>Google.ca</li>
-              <li>Government of Canada</li>
-          </ul>
-          <button id="closeModalBtn" class="btn btn-outline-dark mb-3" aria-label="close community steering committee modal">Close</button>
-      </div>
+<div id="communityModal"
+     class="modal"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="modalTitle"
+     aria-describedby="modalDesc">
+  <div class="modal-content">
+    <h2 id="modalTitle">Community Steering Committee</h2>
+    <div id="modalDesc">
+      <p>
+        We get an aha! moment from product managers who try our services for the first time.
+        We offered many lab days, workshops and usability testing services to many companies and organizations including:
+      </p>
+
+      <ul>
+        <li>McGill University</li>
+        <li>Walmart.ca</li>
+        <li>Apple.ca</li>
+        <li>Google.ca</li>
+        <li>Government of Canada</li>
+      </ul>
+    </div>
+
+    <button id="closeModalBtn" class="btn btn-outline-dark mb-3">Close</button>
   </div>
+</div>
+
   <div class="row">
-      <article class="col-md-4 col-xl-4">
+      <article class="col-md-4">
           <h2>Our Approach</h2>
           <p>
           Empower Ability Labs utilizes a hands-on approach to raise awareness and promote empathy. Our immersive workshops and lab days provide participants with a unique opportunity to step into the shoes of individuals with disabilities and navigate the world from their perspective.
           </p>
           <a href="https://www.google.com/search/howsearchworks/our-approach/" aria-label="Click this link to learn more about our approaches">Learn More</a>
       </article>
-      <article class="col-md-4 col-xl-4">
+      <article class="col-md-4">
           <h2>Services</h2>
           <p>
           Promote accessibility awareness and enhance the user experience. 
@@ -49,7 +62,7 @@ const homeContent = `
           </ul>
           <a href="https://www.elevenways.be/en/services" aria-label="Click this link to learn more about our services">Learn More</a> 
       </article>
-      <article class="col-md-4 col-xl-4">
+      <article class="col-md-4">
           <h2>Testimonials</h2>
           <p>
           Invite a speaker with disabilities to share their unique journey. This captivating addition to your upcoming event will offer insights that resonate,  inspire, educate, and enrich your team’s understanding of inclusion.
@@ -243,6 +256,7 @@ function setupHomeModal() {
   const openBtn = document.getElementById('openModalBtn');
   const modal = document.getElementById('communityModal');
   const closeBtn = document.getElementById('closeModalBtn');
+  const modalTitle = document.getElementById('modalTitle');
 
   // get the focusable elements in the modal
   const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
@@ -252,6 +266,7 @@ function setupHomeModal() {
   function openModal() {
     modal.classList.add('show');
     modal.setAttribute('aria-hidden', 'false');
+
 
     // move focus to close button when modal opens
     closeBtn.focus();
