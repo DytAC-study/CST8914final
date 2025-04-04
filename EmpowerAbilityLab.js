@@ -68,7 +68,7 @@ const services = `
   <div class="container">
     <div class="row align-items-center">
       <!-- main paragraph -->
-      <div class="col-md-8">
+      <div class="col-md-10">
         <h1 id="services-heading" class="mainHeading display-4">Services content architecture</h1>
         <p class="lead">
           Dedicated space or programs designed to cultivate empathy and understanding among individuals
@@ -78,7 +78,7 @@ const services = `
       </div>
 
       <!-- decorative img, will hide on small screen -->
-      <div class="col-md-4 d-none d-md-block">
+      <div class="col-md-2 d-none d-md-block">
         <img src="images/services.png" alt="" aria-hidden="true" class="img-fluid" />
       </div>
     </div>
@@ -101,7 +101,7 @@ const schedule = `
   <div class="container">
     <div class="row align-items-center">
       <!-- main paragraph -->
-      <div class="col-md-8">
+      <div class="col-md-10">
         <h1 id="schedule-heading" class="mainHeading display-4">Schedule a call</h1>
         <p class="lead">
           At Empower Ability Labs, we are dedicated to cultivating empathy and driving positive change through immersive experiences. Fill out the form below and we’ll get back to you as soon as we can to schedule a call with our sales team!
@@ -109,7 +109,7 @@ const schedule = `
       </div>
 
       <!-- decorative img, will hide on small screen -->
-      <div class="col-md-4 d-none d-md-block">
+      <div class="col-md-2 d-none d-md-block">
         <img src="images/scheduleacall.png" alt="" aria-hidden="true" class="img-fluid" />
       </div>
     </div>
