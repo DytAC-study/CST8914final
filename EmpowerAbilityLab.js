@@ -12,55 +12,55 @@ const homeContent = `
 </div>
 
 <div class="container">
-    <!-- Example row of columns -->
-    <button id="openModalBtn" class="btn btn-outline-dark" aria-label="Click this button to meet the empower communities">Meet the Empower Community!</button>
-    
-    <div id="communityModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
-        <div class="modal-content">
-            <h2 id="modalTitle" tabindex="-1">Community Steering Committee</h2>
-            <p>We get an aha! moment from product managers who try our services for the first time. We offered many lab days, workshops and usability testing services to many companies and organizations including:</p>
-            <ul>
-                <li>McGill University</li>
-                <li>Walmart.ca</li>
-                <li>Apple.ca</li>
-                <li>Google.ca</li>
-                <li>Government of Canada</li>
-            </ul>
-            <button id="closeModalBtn" class="btn btn-outline-dark mb-3" aria-label="close community steering committee modal">Close</button>
-        </div>
-    </div>
-    <div class="row">
-        <article class="col-md-4 col-xl-4">
-            <h2>Our Approach</h2>
-            <p>
-            Empower Ability Labs utilizes a hands-on approach to raise awareness and promote empathy. Our immersive workshops and lab days provide participants with a unique opportunity to step into the shoes of individuals with disabilities and navigate the world from their perspective.
-            </p>
-            <a href="https://www.google.com/search/howsearchworks/our-approach/" aria-label="Click this link to learn more about our approaches">Learn More</a>
-        </article>
-        <article class="col-md-4 col-xl-4">
-            <h2>Services</h2>
-            <p>
-            Promote accessibility awareness and enhance the user experience. 
-            </p>
-            <ul>
-                <li>Empathy lab days and workshops</li>
-                <li>Go beyond WCAG compliance!</li>
-                <li>Inspirational speakers.</li>
-            </ul>
-            <a href="https://www.elevenways.be/en/services" aria-label="Click this link to learn more about our services">Learn More</a> 
-        </article>
-        <article class="col-md-4 col-xl-4">
-            <h2>Testimonials</h2>
-            <p>
-            Invite a speaker with disabilities to share their unique journey. This captivating addition to your upcoming event will offer insights that resonate,  inspire, educate, and enrich your team’s understanding of inclusion.
-            </p>
-            <a href="https://dictionary.cambridge.org/us/dictionary/english/testimonial" aria-label="Click this link to learn more about our testimonials">Learn More</a>
-        </article>
-    </div>
+  <!-- Example row of columns -->
+  <button id="openModalBtn" class="btn btn-outline-dark" aria-label="Click this button to meet the empower communities">Meet the Empower Community!</button>
+  
+  <div id="communityModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+      <div class="modal-content">
+          <h2 id="modalTitle" tabindex="-1">Community Steering Committee</h2>
+          <p>We get an aha! moment from product managers who try our services for the first time. We offered many lab days, workshops and usability testing services to many companies and organizations including:</p>
+          <ul>
+              <li>McGill University</li>
+              <li>Walmart.ca</li>
+              <li>Apple.ca</li>
+              <li>Google.ca</li>
+              <li>Government of Canada</li>
+          </ul>
+          <button id="closeModalBtn" class="btn btn-outline-dark mb-3" aria-label="close community steering committee modal">Close</button>
+      </div>
+  </div>
+  <div class="row">
+      <article class="col-md-4 col-xl-4">
+          <h2>Our Approach</h2>
+          <p>
+          Empower Ability Labs utilizes a hands-on approach to raise awareness and promote empathy. Our immersive workshops and lab days provide participants with a unique opportunity to step into the shoes of individuals with disabilities and navigate the world from their perspective.
+          </p>
+          <a href="https://www.google.com/search/howsearchworks/our-approach/" aria-label="Click this link to learn more about our approaches">Learn More</a>
+      </article>
+      <article class="col-md-4 col-xl-4">
+          <h2>Services</h2>
+          <p>
+          Promote accessibility awareness and enhance the user experience. 
+          </p>
+          <ul>
+              <li>Empathy lab days and workshops</li>
+              <li>Go beyond WCAG compliance!</li>
+              <li>Inspirational speakers.</li>
+          </ul>
+          <a href="https://www.elevenways.be/en/services" aria-label="Click this link to learn more about our services">Learn More</a> 
+      </article>
+      <article class="col-md-4 col-xl-4">
+          <h2>Testimonials</h2>
+          <p>
+          Invite a speaker with disabilities to share their unique journey. This captivating addition to your upcoming event will offer insights that resonate,  inspire, educate, and enrich your team’s understanding of inclusion.
+          </p>
+          <a href="https://dictionary.cambridge.org/us/dictionary/english/testimonial" aria-label="Click this link to learn more about our testimonials">Learn More</a>
+      </article>
+  </div>
 
-        <hr>
+  <hr>
 
-      </div> <!-- /container -->
+</div> <!-- /container -->
 `;
 
 const services = `
@@ -85,15 +85,15 @@ const services = `
   </div>
 </div>
 
-    <div class="container" role="region" aria-labelledby="offerings-heading">
-        <h2 id="offerings-heading">Empathy Lab days and workshops</h2>
-        <p>The lab days and workshops typically provide hands-on experiences, simulations, and interactions with assistive technologies, tools, and scenarios that replicate the obstacles individuals with disabilities encounter daily.</p>
-        <h2 id="speakers-heading">Inspirational speakers</h2>
-        <p>Invite a speaker with disabilities to share their unique journey. This captivating addition to your upcoming event will offer insights that resonate, inspire, educate, and enrich your team’s understanding of inclusion.</p>
-        <h2 id="usability-heading">Usability testing</h2>
-        <p>Go beyond WCAG! Involve individuals with disabilities in usability testing to gather valuable insights for refining product strategy and identifying accessibility concerns at an early stage when solutions are more feasible and cost-effective. You have access to a diverse community of people with disabilities, who use various assistive technologies. With technical expertise ranging from novice to expert, our community can support your product lifecycle from user research, to design, to QA.</p>
-        <hr>
-    </div>
+<div class="container" role="region" aria-labelledby="offerings-heading">
+  <h2 id="offerings-heading">Empathy Lab days and workshops</h2>
+  <p>The lab days and workshops typically provide hands-on experiences, simulations, and interactions with assistive technologies, tools, and scenarios that replicate the obstacles individuals with disabilities encounter daily.</p>
+  <h2 id="speakers-heading">Inspirational speakers</h2>
+  <p>Invite a speaker with disabilities to share their unique journey. This captivating addition to your upcoming event will offer insights that resonate, inspire, educate, and enrich your team’s understanding of inclusion.</p>
+  <h2 id="usability-heading">Usability testing</h2>
+  <p>Go beyond WCAG! Involve individuals with disabilities in usability testing to gather valuable insights for refining product strategy and identifying accessibility concerns at an early stage when solutions are more feasible and cost-effective. You have access to a diverse community of people with disabilities, who use various assistive technologies. With technical expertise ranging from novice to expert, our community can support your product lifecycle from user research, to design, to QA.</p>
+  <hr>
+</div>
 `;
 
 const schedule = `
@@ -116,66 +116,66 @@ const schedule = `
   </div>
 </div>
 
-          <!-- Area for hidden messages -->
-        <div id="formMessage" tabindex="-1" class="text-center mt-4" style="display: none;"></div>
+<!-- Area for hidden messages -->
+<div id="formMessage" tabindex="-1" class="text-center mt-4" style="display: none;"></div>
 
-          <!-- Area for form -->
-        <form class="container" id="scheduleForm">
-          <fieldset>
-          <legend>Contact Information</legend>
+    <!-- Area for form -->
+    <form class="container" id="scheduleForm" role="form" novalidate> <!-- novalidate is to disable browser validation which will prevent message box from appearing when validation failed. -->
+      <fieldset>
+      <legend>Contact Information</legend>
 
-          <div class="form-group row">
-            <label for="businessName" class="col-md-3 col-sm-5 col-form-label">Business Name:</label>
-            <div class="col-md-4 col-sm-7">
-              <input type="text" id="businessName" name="businessName" class="form-control" required placeholder="e.g. John">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="phoneNumber" class="col-md-3 col-sm-5 col-form-label">Phone number (613-123-1234):</label>
-            <div class="col-md-4 col-sm-7">
-              <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" required placeholder="e.g. 613-123-1234">
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label for="email" class="col-md-3 col-sm-5 col-form-label">Email: (required)</label>
-            <div class="col-md-4 col-sm-7">
-              <input type="email" id="email" name="email" class="form-control" required placeholder="e.g. sampleUser@gmail.com">
-            </div>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>What would you like to talk about:</legend>
-          <div class="form-check mb-3">
-            <input class="form-check-input" type="radio" name="options" id="option1" value="1" checked>
-            <label class="form-check-label" for="option1">Awareness lab days and workshops</label>
-          </div>
-          <div class="form-check mb-3">
-            <input class="form-check-input" type="radio" name="options" id="option2" value="2">
-            <label class="form-check-label" for="option2">Invite a speaker with disabilities to your event</label>
-          </div>
-          <div class="form-check mb-3">
-            <input class="form-check-input" type="radio" name="options" id="option3" value="3">
-            <label class="form-check-label" for="option3">Usability testing</label>
-          </div>
-        </fieldset>
-        <!-- Area for text container -->
-        <div id="eventDetailsContainer" style="display: none; margin-top: 10px;">
-            <label for="eventDetails">Please tell us about your event:</label>
-            <br>
-            <textarea id="eventDetails" name="eventDetails" rows="4" cols="50"></textarea>
+      <div class="form-group row">
+        <label for="businessName" class="col-md-3 col-sm-5 col-form-label">Business Name:</label>
+        <div class="col-md-4 col-sm-7">
+          <input type="text" id="businessName" name="businessName" class="form-control" placeholder="e.g. John">
         </div>
-        <div class="custom-switch mb-3">
-          <input type="checkbox" id="emailSwitch" class="hidden-checkbox" checked>
-          <label for="emailSwitch" class="custom-switch-label">
-              <span class="switch-sprite" aria-hidden="true"></span>
-              <span class="switch-text">Receive emails about updates and services</span>
-          </label>
+      </div>
+      <div class="form-group row">
+        <label for="phoneNumber" class="col-md-3 col-sm-5 col-form-label">Phone number (613-123-1234):</label>
+        <div class="col-md-4 col-sm-7">
+          <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="e.g. 613-123-1234">
         </div>
-        <button type="submit" class="btn btn-outline-dark mb-3" aria-label="Click this button to submit the form and schedule a call">Schedule a call</button>
-    </form>
-    <hr>
-    </div> <!-- /container -->
+      </div>
+
+      <div class="form-group row">
+        <label for="email" class="col-md-3 col-sm-5 col-form-label">Email: (required)</label>
+        <div class="col-md-4 col-sm-7">
+          <input type="email" id="email" name="email" class="form-control" required placeholder="e.g. sampleUser@gmail.com">
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>What would you like to talk about:</legend>
+      <div class="form-check mb-3">
+        <input class="form-check-input" type="radio" name="options" id="option1" value="1" checked>
+        <label class="form-check-label" for="option1">Awareness lab days and workshops</label>
+      </div>
+      <div class="form-check mb-3">
+        <input class="form-check-input" type="radio" name="options" id="option2" value="2">
+        <label class="form-check-label" for="option2">Invite a speaker with disabilities to your event</label>
+      </div>
+      <div class="form-check mb-3">
+        <input class="form-check-input" type="radio" name="options" id="option3" value="3">
+        <label class="form-check-label" for="option3">Usability testing</label>
+      </div>
+    </fieldset>
+    <!-- Area for text container -->
+    <div id="eventDetailsContainer" style="display: none; margin-top: 10px;">
+        <label for="eventDetails">Please tell us about your event:</label>
+        <br>
+        <textarea id="eventDetails" name="eventDetails" rows="4" cols="50"></textarea>
+    </div>
+    <div class="custom-switch mb-3">
+      <input type="checkbox" id="emailSwitch" class="hidden-checkbox" checked>
+      <label for="emailSwitch" class="custom-switch-label">
+          <span class="switch-sprite" aria-hidden="true"></span>
+          <span class="switch-text">Receive emails about updates and services</span>
+      </label>
+    </div>
+    <button type="submit" class="btn btn-outline-dark mb-3" aria-label="Click this button to submit the form and schedule a call">Schedule a call</button>
+</form>
+<hr>
+</div> <!-- /container -->
 `;
 
 // Set routing for the application
@@ -211,6 +211,15 @@ function setupFormSubmission() {
     const form = document.getElementById('scheduleForm');
     const messageBox = document.getElementById('formMessage');
   
+    // const email = document.getElementById('email');
+
+    // email.addEventListener('invalid', function(event) {
+    //   event.preventDefault(); // 阻止浏览器的默认验证提示
+    //   // 在此处添加自定义的错误处理逻辑，例如显示自定义的错误消息
+    //   // alert('请输入有效的内容！');
+    // });
+
+
     if (!form || !messageBox) return;
   
     form.addEventListener('submit', function (event) {
@@ -218,8 +227,9 @@ function setupFormSubmission() {
   
       // Clear previous state
       messageBox.className = 'text-center mt-4';
+      messageBox.style.display = 'none';
   
-      if (form.checkValidity()) {
+      if (form.reportValidity()) {
         // Success submission
         messageBox.textContent = "✅ Thank you! Your message has been sent successfully.";
         messageBox.classList.add('text-success', 'font-weight-bold');
@@ -335,6 +345,7 @@ function setupNavbarToggle() {
     });
   }
 }
+
 
 window.addEventListener('hashchange', router);
 window.addEventListener('load', () => {
