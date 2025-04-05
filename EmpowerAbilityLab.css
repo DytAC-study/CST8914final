@@ -38,7 +38,7 @@
 
 .nav-link {
   text-decoration: none;
-  color: #333333;
+  color: #111111;
   font-size: 1.5rem;
   /* padding: 0.5rem 1rem; */
   border-radius: 5px;
@@ -73,9 +73,10 @@
 }
 
 .navbar-toggler:focus {
-  outline: 2px solid #0d6efd;
+  outline: 2px solid #0a58ca;
   /* Focus outline for accessibility */
   outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(10, 88, 202, 0.5);
 }
 
 /* Navigation collapse control */
@@ -280,7 +281,7 @@ input[type="radio"]:hover+label {
 }
 
 .switch-toggle[aria-checked="true"] {
-  background-color: #2196F3;
+  background-color: #372AF3;
 }
 
 .switch-toggle[aria-checked="true"]:before {
@@ -303,7 +304,7 @@ input[type="radio"]:hover+label {
 }
 
 .learn-more-link {
-  color: #9C1D90;
+  color: #78106D;
   font-weight: bold;
   text-decoration: underline;
 }
