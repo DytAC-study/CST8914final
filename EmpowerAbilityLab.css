@@ -2,8 +2,10 @@
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Distribute items to both ends */
-  background-color: #e2e5e7; /* light color */
+  justify-content: space-between;
+  /* Distribute items to both ends */
+  background-color: #e2e5e7;
+  /* light color */
   /* padding: 0.5rem 1rem; */
 }
 
@@ -11,8 +13,10 @@
 .navbar .container {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Logo on left, hamburger on right */
-  flex-wrap: nowrap; /* Prevent wrapping to keep items in one line */
+  justify-content: space-between;
+  /* Logo on left, hamburger on right */
+  flex-wrap: nowrap;
+  /* Prevent wrapping to keep items in one line */
   width: 100%;
 }
 
@@ -41,18 +45,21 @@
   transition: background-color 0.3s ease;
 }
 
-.nav-link:hover, .nav-link:focus {
+.nav-link:hover,
+.nav-link:focus {
   background-color: #d6d6d6;
 }
 
 /* Hamburger menu button styles */
 .navbar-toggler {
-  display: none; /* Hidden by default, shown on small screens */
+  display: none;
+  /* Hidden by default, shown on small screens */
   border: none;
   background: transparent;
   padding: 0.5rem;
   cursor: pointer;
-  margin-left: auto; /* Push the button to the right */
+  margin-left: auto;
+  /* Push the button to the right */
 }
 
 .navbar-toggler-icon {
@@ -65,27 +72,32 @@
 }
 
 .navbar-toggler:focus {
-  outline: 2px solid #0d6efd; /* Focus outline for accessibility */
+  outline: 2px solid #0d6efd;
+  /* Focus outline for accessibility */
   outline-offset: 2px;
 }
 
 /* Navigation collapse control */
 .navbar-collapse {
-  display: flex; /* Default display for large screens */
+  display: flex;
+  /* Default display for large screens */
 }
 
 .navbar-collapse.show {
-  display: block; /* Display when expanded on small screens */
+  display: block;
+  /* Display when expanded on small screens */
 }
 
 /* Responsive design: Adjustments for small screens */
 @media (max-width: 767px) {
   .navbar-toggler {
-    display: block; /* Show hamburger button on small screens */
+    display: block;
+    /* Show hamburger button on small screens */
   }
 
   .navbar-collapse {
-    display: none; /* Hide navigation by default on small screens */
+    display: none;
+    /* Hide navigation by default on small screens */
     width: 100%;
     position: absolute;
     top: 100%;
@@ -95,7 +107,8 @@
   }
 
   .navbar-nav {
-    flex-direction: column; /* Stack navigation items vertically on small screens */
+    flex-direction: column;
+    /* Stack navigation items vertically on small screens */
     padding: 1rem;
   }
 
@@ -107,13 +120,14 @@
 
 /* Modal button configuration */
 .modal {
-  display: none; /* default: don't show modal */
+  display: none;
+  /* default: don't show modal */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 1000;
   justify-content: center;
   align-items: center;
@@ -184,19 +198,21 @@ legend {
   margin-right: 10px;
   background-image: url('images/button.png');
   background-size: 100% 200%;
-  background-position: bottom; /* default mode is unchecked */
+  background-position: bottom;
+  /* default mode is unchecked */
 }
 
-.hidden-checkbox:checked + label .switch-sprite {
-  background-position: top; /* when checked, show the top half of the button image */
+.hidden-checkbox:checked+label .switch-sprite {
+  background-position: top;
+  /* when checked, show the top half of the button image */
 }
 
 /* When checkbox unchecked, show the bottom half of the picture */
-.hidden-checkbox:not(:checked) + .custom-switch-label .switch-sprite {
+.hidden-checkbox:not(:checked)+.custom-switch-label .switch-sprite {
   background-position: bottom;
 }
 
-.hidden-checkbox:focus + .custom-switch-label .switch-sprite {
+.hidden-checkbox:focus+.custom-switch-label .switch-sprite {
   outline: 2px solid #0d6efd;
   outline-offset: 4px;
 }
@@ -206,7 +222,7 @@ legend {
 }
 
 /* Removes top padding, so navbar is at the top, and there's no main content div overlapping */
-body { 
+body {
   padding-top: 0rem;
 }
 
@@ -217,8 +233,8 @@ body {
 }
 
 /* let the radio button and label have a border when gain focus */
-input[type="radio"]:focus + label,
-input[type="radio"]:hover + label {
+input[type="radio"]:focus+label,
+input[type="radio"]:hover+label {
   border-radius: 5px;
   outline: 2px solid black;
 }
@@ -283,4 +299,16 @@ input[type="radio"]:hover + label {
 .switch-toggle:focus-visible {
   outline: 2px solid #2196F3;
   outline-offset: 2px;
+}
+
+.learn-more-link {
+  color: #9C1D90;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.learn-more-link:hover,
+.learn-more-link:focus {
+  color: #4541CF;
+  text-decoration: none;
 }

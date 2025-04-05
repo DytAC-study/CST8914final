@@ -48,7 +48,7 @@ const homeContent = `
           <p>
           Empower Ability Labs utilizes a hands-on approach to raise awareness and promote empathy. Our immersive workshops and lab days provide participants with a unique opportunity to step into the shoes of individuals with disabilities and navigate the world from their perspective.
           </p>
-          <a href="https://www.google.com/search/howsearchworks/our-approach/" aria-label="Click this link to learn more about our approaches">Learn More</a>
+          <a href="https://www.google.com/search/howsearchworks/our-approach/" class="learn-more-link" aria-label="Click this link to learn more about our approaches">Learn More</a>
       </article>
       <article class="col-md-4">
           <h2>Services</h2>
@@ -60,14 +60,14 @@ const homeContent = `
               <li>Go beyond WCAG compliance!</li>
               <li>Inspirational speakers.</li>
           </ul>
-          <a href="https://www.elevenways.be/en/services" aria-label="Click this link to learn more about our services">Learn More</a> 
+          <a href="https://www.elevenways.be/en/services" class="learn-more-link" aria-label="Click this link to learn more about our services">Learn More</a>
       </article>
       <article class="col-md-4">
           <h2>Testimonials</h2>
           <p>
           Invite a speaker with disabilities to share their unique journey. This captivating addition to your upcoming event will offer insights that resonate,  inspire, educate, and enrich your team’s understanding of inclusion.
           </p>
-          <a href="https://dictionary.cambridge.org/us/dictionary/english/testimonial" aria-label="Click this link to learn more about our testimonials">Learn More</a>
+          <a href="https://dictionary.cambridge.org/us/dictionary/english/testimonial" class="learn-more-link" aria-label="Click this link to learn more about our testimonials">Learn More</a>
       </article>
   </div>
 
@@ -195,61 +195,61 @@ const schedule = `
 // Set routing for the application
 // The routes object maps the hash to the corresponding content and title
 const routes = {
-    '#home': { title: 'Empower Ability Labs Home Page', content: homeContent },
-    '#services': { title: 'Empower Ability Labs Service Page', content: services },
-    '#schedule': { title: 'Empower Ability Labs Schedule A Call Page', content: schedule },
-  };
+  '#home': { title: 'Empower Ability Labs Home Page', content: homeContent },
+  '#services': { title: 'Empower Ability Labs Service Page', content: services },
+  '#schedule': { title: 'Empower Ability Labs Schedule A Call Page', content: schedule },
+};
 
 function setupEventDetailsToggle() {
-    const options = document.querySelectorAll('input[name="options"]');
-    const eventDetailsContainer = document.getElementById('eventDetailsContainer');
-    const eventDetails = document.getElementById('eventDetails');
-  
-    if (options.length && eventDetailsContainer) {
-      options.forEach(option => {
-        option.addEventListener('change', () => {
-          const selected = document.querySelector('input[name="options"]:checked');
-  
-          if (selected && selected.id === 'option2') {
-            eventDetailsContainer.style.display = 'block';
-            eventDetails.focus();
-          } else {
-            eventDetailsContainer.style.display = 'none';
-          }
-        });
+  const options = document.querySelectorAll('input[name="options"]');
+  const eventDetailsContainer = document.getElementById('eventDetailsContainer');
+  const eventDetails = document.getElementById('eventDetails');
+
+  if (options.length && eventDetailsContainer) {
+    options.forEach(option => {
+      option.addEventListener('change', () => {
+        const selected = document.querySelector('input[name="options"]:checked');
+
+        if (selected && selected.id === 'option2') {
+          eventDetailsContainer.style.display = 'block';
+          eventDetails.focus();
+        } else {
+          eventDetailsContainer.style.display = 'none';
+        }
       });
-    }
+    });
+  }
 }
 
 function setupFormSubmission() {
-    const form = document.getElementById('scheduleForm');
-    const messageBox = document.getElementById('formMessage');
+  const form = document.getElementById('scheduleForm');
+  const messageBox = document.getElementById('formMessage');
 
 
-    if (!form || !messageBox) return;
-  
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
-  
-      // Clear previous state
-      messageBox.className = 'text-center mt-4';
-      messageBox.style.display = 'none';
-  
-      if (form.reportValidity()) {
-        // Success submission
-        messageBox.textContent = "✅ Thank you! Your message has been sent successfully.";
-        messageBox.classList.add('text-success', 'font-weight-bold');
-        messageBox.style.display = 'block';
-        messageBox.focus(); // Move focus to the message box
-        form.reset();
-      } else {
-        // Form validation failed
-        messageBox.textContent = "⚠️ Please fill out all required fields correctly.";
-        messageBox.classList.add('text-danger', 'font-weight-bold');
-        messageBox.style.display = 'block';
-        messageBox.focus(); // Move focus to the message box
-      }
-    });
+  if (!form || !messageBox) return;
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    // Clear previous state
+    messageBox.className = 'text-center mt-4';
+    messageBox.style.display = 'none';
+
+    if (form.reportValidity()) {
+      // Success submission
+      messageBox.textContent = "✅ Thank you! Your message has been sent successfully.";
+      messageBox.classList.add('text-success', 'font-weight-bold');
+      messageBox.style.display = 'block';
+      messageBox.focus(); // Move focus to the message box
+      form.reset();
+    } else {
+      // Form validation failed
+      messageBox.textContent = "⚠️ Please fill out all required fields correctly.";
+      messageBox.classList.add('text-danger', 'font-weight-bold');
+      messageBox.style.display = 'block';
+      messageBox.focus(); // Move focus to the message box
+    }
+  });
 }
 
 function setupHomeModal() {
@@ -311,21 +311,21 @@ function setupHomeModal() {
 //swtich toggle function
 function initializeSwitch() {
   const switchEl = document.getElementById("emailSwitch");
-  
+
   // Define toggle function
   function toggle() {
     const checked = switchEl.getAttribute("aria-checked") === "true";
     switchEl.setAttribute("aria-checked", !checked);
   }
-  
+
   // Remove any existing event listeners to prevent duplicates
   switchEl.removeEventListener("click", toggle);
 
   // Add click event listener
   switchEl.addEventListener("click", toggle);
-  
+
   // Add keyboard event listener
-  switchEl.addEventListener("keydown", function(e) {
+  switchEl.addEventListener("keydown", function (e) {
     // Toggle with Space or Enter
     if (e.key === " " || e.key === "Enter") {
       e.preventDefault();
@@ -337,21 +337,21 @@ function initializeSwitch() {
 //swtich toggle function
 function initializeSwitch() {
   const switchEl = document.getElementById("emailSwitch");
-  
+
   // Define toggle function
   function toggle() {
     const checked = switchEl.getAttribute("aria-checked") === "true";
     switchEl.setAttribute("aria-checked", !checked);
   }
-  
+
   // Remove any existing event listeners to prevent duplicates
   switchEl.removeEventListener("click", toggle);
 
   // Add click event listener
   switchEl.addEventListener("click", toggle);
-  
+
   // Add keyboard event listener
-  switchEl.addEventListener("keydown", function(e) {
+  switchEl.addEventListener("keydown", function (e) {
     // Toggle with Space or Enter
     if (e.key === " " || e.key === "Enter") {
       e.preventDefault();
@@ -360,24 +360,24 @@ function initializeSwitch() {
   });
 }
 
-  
+
 function router() {
-    const hash = window.location.hash || '#home';
-    const route = routes[hash] || { title: 'page not found', content: '<h1>page not found</h1>' };
+  const hash = window.location.hash || '#home';
+  const route = routes[hash] || { title: 'page not found', content: '<h1>page not found</h1>' };
 
-    // Update the main content
-    main.innerHTML = route.content;
+  // Update the main content
+  main.innerHTML = route.content;
 
-    // Update page title
-    document.title = route.title;
+  // Update page title
+  document.title = route.title;
 
-    if (hash === '#schedule') {
-        setupEventDetailsToggle();
-        setupFormSubmission();
-        initializeSwitch();
-    } else if (hash === '#home') {
-        setupHomeModal();
-    }
+  if (hash === '#schedule') {
+    setupEventDetailsToggle();
+    setupFormSubmission();
+    initializeSwitch();
+  } else if (hash === '#home') {
+    setupHomeModal();
+  }
 }
 
 // Setup hamburger menu toggle functionality
